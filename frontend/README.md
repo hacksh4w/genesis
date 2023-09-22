@@ -13,4 +13,4 @@ Steps to run :  (make sure ur in the frontend folder first lol)
 
 `npm run dev`
 
-Packages added : react-router, react-router-dom, chakraui/react
+Packages added : vite, react-router, react-router-dom, chakraui/react
