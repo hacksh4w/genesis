@@ -1,0 +1,23 @@
+.heading_body{
+    display: flex;
+
+}
+
+.description{
+  display: flex;
+  flex-direction: column;
+  justify-content:center;
+}
+.heading_body img{
+  width: 50%;
+  height: 900px;
+}
+.family_planning1 p
+{
+  color: #FEBBBB;
+  font-size:xx-large ;
+}
+.famil p{
+  color: #1F4172;
+}
+
