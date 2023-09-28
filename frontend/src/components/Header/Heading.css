@@ -1,0 +1,52 @@
+
+.header-wrapper{
+    display: flex;
+    width: 100%;
+  
+    justify-content: space-between;
+
+ 
+}
+.logo{
+    display: flex;
+    justify-content: center;
+    align-items:center;
+ 
+    
+}
+.logo img{
+    width: 120px;
+    height: 100px;
+
+}
+.logo p{
+    color: #FEBBBB;
+    font-size:x-large;
+ transform: translateX(-20px);
+   
+}
+.btns{
+display: flex;
+    justify-content: center;
+    align-items:center;
+gap:100px;
+
+ 
+   
+   
+
+
+}
+.btn1{
+  border: 0.5px solid rgb(245, 245, 82);
+    border-radius: 10px;
+    height: 25px;
+    cursor: pointer;
+}
+.btn3{
+    border: 0.5px solid white;
+    background-color:#FEBBBB ;
+    border-radius: 10px;
+    height: 25px;
+    cursor: pointer;
+}
