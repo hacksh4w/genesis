@@ -1,8 +1,11 @@
-import React from 'react'
+
+import HeadingPage from './pages/header'
 
 const App = () => {
   return (
-    <div>App</div>
+    <>
+      <HeadingPage />
+    </>
   )
 }
 
