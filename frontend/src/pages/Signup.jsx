@@ -1,6 +1,7 @@
 import LockFillIcon from 'remixicon-react/LockFillIcon';
 import MailFillIcon from 'remixicon-react/MailFillIcon'
 import UserFillIcon from 'remixicon-react/UserFillIcon'
+
 const Signup = () => {
     return (
         <div className="sign-up-page">

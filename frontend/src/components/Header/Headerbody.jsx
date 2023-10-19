@@ -1,6 +1,6 @@
-import React from "react";
 import "./Headerbody.css";
 import bgImage from "../../assets/family_planning.webp";
+
 function Headerbody() {
   return (
     <div className="heading_body">

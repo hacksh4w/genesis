@@ -6,7 +6,7 @@ const App = () => {
   return (
     <>
       <Signup/>
-      <HeadingPage />
+      {/*<HeadingPage /> */}
     </>
   )
 }
