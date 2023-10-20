@@ -1,13 +1,13 @@
-import "./Heading.css";
+import "./homeNav.css";
 import logo from "../../assets/logo.jpg";
 //import bgImage from "../../assets/family_planning.webp";
 
-function Heading() {
+function HomeNav() {
   return (
     <div className="header-container">
       <div className="header-wrapper">
         <div className="logo">
-          <img src={logo}></img>
+          <img src={logo}/>
           <p>Fosterhome</p>
         </div>
         <div className="btns">
@@ -26,4 +26,4 @@ function Heading() {
   );
 }
 
-export default Heading;
+export default HomeNav;

@@ -1,7 +1,7 @@
-import "./Headerbody.css";
+import "./Body.css";
 import bgImage from "../../assets/family_planning.webp";
 
-function Headerbody() {
+function Body() {
   return (
     <div className="heading_body">
       <div className="description">
@@ -25,4 +25,4 @@ function Headerbody() {
   );
 }
 
-export default Headerbody;
+export default Body;

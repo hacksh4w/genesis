@@ -1,6 +1,6 @@
-import React, { createContext } from 'react';
-import useMediaQuery from '@mui/material/useMediaQuery';
-
+//import React, { createContext } from 'react';
+//import useMediaQuery from '@mui/material/useMediaQuery';
+/*
 
 //Make this non  MUI
 type mediaquery = {
@@ -26,11 +26,9 @@ export default function MediaQuery(props: any) {
   const width1100 = useMediaQuery('(min-width:1100px)');
   const [open, setOpen] = React.useState<boolean>(false);
 
-  return (
+return (
     <themeContext.Provider
       value={{ width1100, width400, width600, width900, open, setOpen }}
     >
       {props.children}
-    </themeContext.Provider>
-  );
-}
+    </themeContext.Provider>);} */

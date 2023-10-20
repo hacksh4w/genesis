@@ -1,6 +1,7 @@
 import LockFillIcon from 'remixicon-react/LockFillIcon';
 import MailFillIcon from 'remixicon-react/MailFillIcon'
 import UserFillIcon from 'remixicon-react/UserFillIcon'
+import "./Signup.css"
 
 const Signup = () => {
     return (
