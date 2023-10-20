@@ -1,7 +1,6 @@
-import React from "react";
 import "./Heading.css";
 import logo from "../../assets/logo.jpg";
-import bgImage from "../../assets/family_planning.webp";
+//import bgImage from "../../assets/family_planning.webp";
 
 function Heading() {
   return (
