@@ -25,6 +25,9 @@ Problem Statement : ---------------------------------
 # Team Members
 ### **Team Name** : Tech Pirates
 1. [Mrinalini Nair Ani](https://github.com/hacksh4w/)
+2. [Meenakshi Suresh](https://github.com/hacksh4w/)
+3. [Mary Ann Jose](https://github.com/sora-san45)
+4. [Lovebin Robin](https://github.com/lovebin123)
 
 
 ## Key Features 
