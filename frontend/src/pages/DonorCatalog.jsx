@@ -1,9 +1,10 @@
-import { Button, Divider, Flex, Heading, Input, InputGroup, InputRightAddon, Menu, MenuButton, MenuItem, MenuList, Text } from "@chakra-ui/react";
-import { ChevronDownIcon, SearchIcon } from '@chakra-ui/icons'
+import {  Divider, Flex, Heading, Input, InputGroup, InputRightAddon } from "@chakra-ui/react";
+import {  SearchIcon } from '@chakra-ui/icons'
 import DonorTile from "../components/Donor/DonorTile";
 
 import FilterTag from "../components/Donor/FilterTag";
 import { useState } from "react";
+import Navbar from "../components/Navbar/Navbar";
 
 const DonorCatalog = () => {
     let donorList = [{
@@ -51,23 +52,10 @@ const DonorCatalog = () => {
     const searchFieldClear=()=>{
         setDonors(donorList)
     }
+
     return (
         <Flex direction={'column'} p={4} h={'100vh'} w={'100vw'} >
-            <Flex bgColor={'blue.50'} mb={4} borderRadius={'30'} alignItems={'center'} p={4} justifyContent={'space-between'} >
-                <Heading fontSize={'25'} ml={10}>Logo</Heading>
-                <Flex alignItems={'center'} w={500} justifyContent={'space-between'}>
-                    <Menu  >
-                        <MenuButton fontSize={'17'} as={Text} color={'blue.600'} >Donor<ChevronDownIcon fontSize={20} color={'blue.600'}/></MenuButton>
-                        <MenuList >
-                            <MenuItem _active={{color:"blue.500"}}>All Donors</MenuItem>
-                            <MenuItem _active={{color:"blue.500"}}>Become Donor</MenuItem>
-                        </MenuList>
-                    </Menu>
-                    <Text fontSize={'17'} color={'blue.600'}>Adopter</Text>
-                    <Text fontSize={'17'} color={'blue.600'}>Clinic Services</Text>
-                    <Button colorScheme="blue" borderRadius={'30'}>Log out</Button>
-                </Flex>
-            </Flex>
+            <Navbar/>
             <Flex>
                 <Flex w={300} mr={10} p={4} direction={'column'} justifyContent={'space-evenly'} gap={5} minW={250}>
                     <Heading fontSize={20}>Filters</Heading>

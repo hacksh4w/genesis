@@ -3,10 +3,11 @@ import './App.css'
 import { ChakraProvider } from '@chakra-ui/react'
 import { Routes, Route } from "react-router-dom"
 import Signup from './pages/SignUpPage/Signup'
-import DonorCatalog from './pages/DonorCatalog'
+
 import LandingPage from './pages/LandingPage/LandingPage'
 import DonorProfile from './pages/DonorProfile'
 import DonorApplication from './pages/DonorApplication'
+import DonorCatalog from './pages/donorCatalog'
 
 
 
