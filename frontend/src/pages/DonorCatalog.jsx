@@ -54,7 +54,7 @@ const DonorCatalog = () => {
     }
 
     return (
-        <Flex direction={'column'} p={4} h={'100vh'} w={'100vw'} >
+        <Flex direction={'column'} p={7} h={'100vh'} w={'100vw'} >
             <Navbar/>
             <Flex>
                 <Flex w={300} mr={10} p={4} direction={'column'} justifyContent={'space-evenly'} gap={5} minW={250}>
