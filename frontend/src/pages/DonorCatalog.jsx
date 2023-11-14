@@ -52,7 +52,7 @@ const DonorCatalog = () => {
     const searchFieldClear=()=>{
         setDonors(donorList)
     }
-
+    
     return (
         <Flex direction={'column'} p={7} h={'100vh'} w={'100vw'} >
             <Navbar/>

@@ -24,7 +24,7 @@ const App = () => {
         <Route path="/Genesis/transactions" element={<Signup/>}></Route>
         <Route path="/Genesis/signup" element={<Signup/>}></Route> */}
         </Routes>
-        <Footer />
+        
       </ChakraProvider>
     </div>
   )

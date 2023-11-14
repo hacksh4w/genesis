@@ -1,11 +1,13 @@
-import {Tag, TagCloseButton, TagLabel} from '@chakra-ui/react'
+import {Tag, TagLabel} from '@chakra-ui/react'
 import { useState } from 'react';
 const FilterTag = (props) => {
-    const [tagTheme, setTagTheme] = useState("gray")
+    const [tagTheme, setTagTheme] = useState(false)
+    const handleTagTheme = () =>{
+        setTagTheme(!tagTheme)
+    }
     return (
-        <Tag borderRadius={20} colorScheme={tagTheme}>
-            <TagLabel onClick={() => setTagTheme("blue")} cursor={"pointer"}>{props.name}</TagLabel>
-            <TagCloseButton onClick={() => setTagTheme("gray")} />
+        <Tag borderRadius={20} colorScheme={tagTheme==true?"blue":"gray"}>
+            <TagLabel onClick={() => handleTagTheme()} cursor={"pointer"} >{props.name}</TagLabel>
         </Tag>
     );
 }
