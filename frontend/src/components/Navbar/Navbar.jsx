@@ -1,7 +1,7 @@
-import {Flex,Menu, MenuButton, MenuItem, MenuList, Text,Heading,Button} from '@chakra-ui/react'
+import {Flex,Menu, MenuButton, MenuItem, MenuList, Text,Heading,Button, Avatar} from '@chakra-ui/react'
 import { ChevronDownIcon} from '@chakra-ui/icons'
 import { useNavigate } from 'react-router';
-
+import woman from '../../assets/woman1.avif'
 const Navbar = () => {
     const navigate = useNavigate()
     return ( 
@@ -17,6 +17,7 @@ const Navbar = () => {
                     </Menu>
                     <Text fontSize={'17'} color={'blue.600'}>Adopter</Text>
                     <Text fontSize={'17'} color={'blue.600'}>Clinic Services</Text>
+                    <Avatar size='sm' bgColor='blue.200'/>
                     <Button colorScheme="blue" borderRadius={'30'}>Log out</Button>
                 </Flex>
             </Flex>
