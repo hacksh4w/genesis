@@ -8,6 +8,8 @@ import Footer from './components/Footer/Footer'
 import DonorApplication from './pages/donorApplication'
 import DonorCatalog from './pages/DonorCatalog'
 import DonorProfile from './pages/DonorProfile'
+import AdopterApplication from './pages/AdopterApplication'
+import AdopterProfile from './pages/AdopterProfile'
 
 const App = () => {
   return (
@@ -20,6 +22,7 @@ const App = () => {
           <Route path="/donors" element={<DonorCatalog/>}></Route>
           <Route path="/donors/:id" element={<DonorProfile/>}></Route>
           <Route path="/donorapplication" element={<DonorApplication/>}></Route>
+          
           {/*} <Route path="/Genesis/adminlogin" element={<Signup/>}></Route>
         <Route path="/Genesis/transactions" element={<Signup/>}></Route>
         <Route path="/Genesis/signup" element={<Signup/>}></Route> */}
