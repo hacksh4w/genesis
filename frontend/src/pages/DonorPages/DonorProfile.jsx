@@ -32,11 +32,11 @@ const DonorProfile = () => {
                     <Text fontSize={15} fontStyle={"italic"}>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Suscipit dolorum adipisci quis ut officiis facere inventore tempora nostrum magnam nemo maiores voluptatum cumque quaerat, placeat nulla, temporibus tenetur a enim!</Text>
                     <Accordion allowToggle defaultIndex={firstOpen ? [0] : []} mt={6} mb={10}>
                         <AccordionItem isFocusable={firstOpen}>
-                            <AccordionButton borderRadius={10} _expanded={{ bgColor:"blue.100"}} onClick={()=>setfirstAccordian(false)}>
+                            <AccordionButton borderRadius={10} _expanded={{ bgColor:"blue.100"}} onClick={()=>setfirstAccordian(false)} justifyContent={'space-between'} color={'blue.700'} fontWeight={'semibold'}>
                                 Personal Attributes
                                 <AccordionIcon />
                             </AccordionButton>
-                            <AccordionPanel>
+                            <AccordionPanel >
                                 <Flex gap={20}>
                                     <Flex direction={"column"}>
                                         <Text fontSize={15}><span style={{ fontWeight: "bold" }}>Name : </span>John Doe</Text>
@@ -51,7 +51,7 @@ const DonorProfile = () => {
                             </AccordionPanel>
                         </AccordionItem>
                         <AccordionItem>
-                            <AccordionButton borderRadius={10} _expanded={{ bgColor:"blue.100"}} onClick={()=>setfirstAccordian(true)}>
+                            <AccordionButton borderRadius={10} _expanded={{ bgColor:"blue.100"}} onClick={()=>setfirstAccordian(true)} justifyContent={'space-between'} color={'blue.700'} fontWeight={'semibold'}>
                                 Physical Attributes
                                 <AccordionIcon />
                             </AccordionButton>
@@ -71,7 +71,7 @@ const DonorProfile = () => {
                             </AccordionPanel>
                         </AccordionItem>
                         <AccordionItem>
-                            <AccordionButton borderRadius={10} _expanded={{ bgColor:"blue.100"}} onClick={()=>setfirstAccordian(true)}>
+                            <AccordionButton borderRadius={10} _expanded={{ bgColor:"blue.100"}} onClick={()=>setfirstAccordian(true)} justifyContent={'space-between'} color={'blue.700'} fontWeight={'semibold'}>
                                 Health Information
                                 <AccordionIcon />
                             </AccordionButton>
@@ -80,7 +80,7 @@ const DonorProfile = () => {
                             </AccordionPanel>
                         </AccordionItem>
                         <AccordionItem>
-                            <AccordionButton borderRadius={10} _expanded={{ bgColor:"blue.100"}} onClick={()=>setfirstAccordian(true)}>
+                            <AccordionButton borderRadius={10} _expanded={{ bgColor:"blue.100"}} onClick={()=>setfirstAccordian(true)} justifyContent={'space-between'} color={'blue.700'} fontWeight={'semibold'}>
                                 Maternal Family
                                 <AccordionIcon />
                             </AccordionButton>
@@ -89,7 +89,7 @@ const DonorProfile = () => {
                             </AccordionPanel>
                         </AccordionItem>
                         <AccordionItem>
-                            <AccordionButton borderRadius={10} _expanded={{ bgColor:"blue.100"}} onClick={()=>setfirstAccordian(true)}>
+                            <AccordionButton borderRadius={10} _expanded={{ bgColor:"blue.100"}} onClick={()=>setfirstAccordian(true)} justifyContent={'space-between'} color={'blue.700'} fontWeight={'semibold'}>
                                 Paternal family
                                 <AccordionIcon />
                             </AccordionButton>
@@ -98,7 +98,7 @@ const DonorProfile = () => {
                             </AccordionPanel>
                         </AccordionItem>
                     </Accordion>
-                    <Button position={"fixed"} top={"83vh"} p={5} w={120} colorScheme="blue" borderRadius={20} onClick={() => handleToast()}>Add to Cart</Button>
+                    <Button position={"fixed"} top={"83vh"} p={5} w={120} colorScheme="blue" borderRadius={20} onClick={() => handleToast()}>Order Now</Button>
                 </Flex>
             </Flex>
 

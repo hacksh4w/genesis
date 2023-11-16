@@ -1,10 +1,10 @@
 import {  Divider, Flex, Heading, Input, InputGroup, InputRightAddon } from "@chakra-ui/react";
 import {  SearchIcon } from '@chakra-ui/icons'
-import DonorTile from "../components/Donor/DonorTile";
+import DonorTile from "../../components/Donor/DonorTile";
 
-import FilterTag from "../components/Donor/FilterTag";
+import FilterTag from "../../components/Donor/FilterTag";
 import { useState } from "react";
-import Navbar from "../components/Navbar/Navbar";
+import Navbar from "../../components/Navbar/Navbar";
 
 const DonorCatalog = () => {
     let donorList = [{
@@ -43,15 +43,17 @@ const DonorCatalog = () => {
     let eyeColorList = ["Hazel", "Green", "Black", "Blue", "Brown"];
     
     const[donors,setDonors] = useState(donorList)
-    const[d,setDonor]=useState("")
 
-    const handleSearch=()=>{
-        const newDonors=donors.filter(donor => donor.donorId.toString() === d)
+    const handleSearch=(e)=>{
+        const searchTerm=e;
+        const newDonors = donorList.filter(
+            (donor) =>
+              donor.donorId.toString().includes(searchTerm) ||
+              donor.name.toLowerCase().includes(searchTerm.toLowerCase())
+          );
         setDonors(newDonors)
     }
-    const searchFieldClear=()=>{
-        setDonors(donorList)
-    }
+    
     
     return (
         <Flex direction={'column'} p={7} h={'100vh'} w={'100vw'} >
@@ -70,14 +72,14 @@ const DonorCatalog = () => {
                     <Heading fontSize={18}>Eye Colour</Heading>
                     <Flex wrap={'wrap'} gap={4}>
                         {eyeColorList && eyeColorList.map((color) => (
-                            <FilterTag key={color} name={color} />
+                            <FilterTag key={color} name={color}/>
                         ))}
                     </Flex>
                 </Flex>
                 <Flex direction={'column'}>
                     <InputGroup w={600} mb={7}>
-                        <Input placeholder="search by Id" borderRadius={'30'}
-                            onChange={(e) => e.target.value ? setDonor(e.target.value) : searchFieldClear()}
+                        <Input placeholder="search" borderRadius={'30'}
+                            onChange={(e) => handleSearch(e.target.value)}
                         ></Input>
                         <InputRightAddon borderTopRightRadius={'30'} borderBottomRightRadius={'30'}><SearchIcon onClick={handleSearch}/></InputRightAddon>
                     </InputGroup>

@@ -4,10 +4,9 @@ import { ChakraProvider } from '@chakra-ui/react'
 import Signup from './pages/SignUpPage/Signup'
 import LandingPage from './pages/LandingPage/LandingPage'
 import { Routes, Route } from "react-router-dom"
-import Footer from './components/Footer/Footer'
-import DonorApplication from './pages/donorApplication'
-import DonorCatalog from './pages/DonorCatalog'
-import DonorProfile from './pages/DonorProfile'
+import DonorApplication from './pages/DonorPages/donorApplication'
+import DonorCatalog from './pages//DonorPages/DonorCatalog'
+import DonorProfile from './pages/DonorPages/DonorProfile'
 
 const App = () => {
   return (

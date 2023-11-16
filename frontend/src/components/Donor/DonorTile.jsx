@@ -5,7 +5,7 @@ const DonorTile = (props) => {
     const navigate = useNavigate()
     return (
         <Flex h={280} w={215} minW={190} bgColor={'blue.50'} borderRadius={'10'} p={4} direction={'column'} alignItems={"center"}  justifyContent={'space-between'}>
-            <Box bgColor={'blue.100'} w={100} h={100} borderRadius={'50'} mb={5}></Box>
+            <Box bgColor={'blue.100'} w={100} h={100} borderRadius={'100'} mb={5}></Box>
             <Flex direction={'column'} w={190} justify={'flex-start'} >
                 <Flex>
                     <Text mr={4} fontSize={'17'} fontWeight={'bold'} textColor={'blue.800'}>{props.donorId}</Text>
