@@ -9,6 +9,7 @@ const Form33 = () => {
       asthma:'',
       hiv:'',
       uti:'',
+      allergies:'',
       diabetes:'',
       cholestrol:'',
       covid:'',
@@ -18,26 +19,118 @@ const Form33 = () => {
       drugs:'',
       pcod:''
   });
+  const handleChange = (e, field) => {
+    setFormData({
+      ...formData,
+      [field]: e.target.value,
+    });
+  };
   return (
-    <Flex direction={'column'}>
-      <HStack spacing={20}>
-        <HStack>
+    <Flex direction={'column'} mt={8} gap={10}>
+      <Flex gap={80}>
+        <HStack spacing={100}>
           <Text as={'b'}>Asthma:</Text>
           <RadioGroup onChange={(e) => handleChange(e, 'asthma')} >
                 <Radio value="Yes"  mr={10}>Yes</Radio>
                 <Radio mr={10} value="No"  >No</Radio>
                 </RadioGroup>
                 </HStack> 
-        <HStack>
+        <HStack ml={6} spacing={100}>
         <Text as={'b'}>HIV/AIDS:</Text>
 
-        <RadioGroup onChange={(e) => handleChange(e, 'asthma')} >
+        <RadioGroup onChange={(e) => handleChange(e, 'hiv')} >
                 <Radio value="Yes"  mr={10}>Yes</Radio>
                 <Radio mr={10} value="No"  >No</Radio>
                 </RadioGroup>
           </HStack> 
-      </HStack>
 
+      </Flex>
+      <Flex gap={350}>
+        <HStack spacing={100}>
+          <Text as={'b'}>UTI:</Text>
+          <RadioGroup onChange={(e) => handleChange(e, 'uti')} ml={8} >
+                <Radio value="Yes"  mr={10}>Yes</Radio>
+                <Radio mr={10} value="No"  >No</Radio>
+                </RadioGroup>
+                </HStack> 
+        <HStack spacing={100}>
+        <Text as={'b'}>Allergies:</Text>
+
+        <RadioGroup onChange={(e) => handleChange(e, 'allergies')}  >
+                <Radio value="Yes"  mr={10}>Yes</Radio>
+                <Radio mr={10} value="No"  >No</Radio>
+                </RadioGroup>
+          </HStack> 
+
+      </Flex>
+      <Flex gap={350}>
+        <HStack spacing={100} >
+          <Text as={'b'}>Diabetes:</Text>
+          <RadioGroup onChange={(e) => handleChange(e, 'diabetes')} ml={8} >
+                <Radio value="Yes"  mr={10}>Yes</Radio>
+                <Radio mr={10} value="No"  >No</Radio>
+                </RadioGroup>
+                </HStack> 
+        <HStack spacing={100} ml={-10}>
+        <Text as={'b'}>Cholestrol:</Text>
+
+        <RadioGroup onChange={(e) => handleChange(e, 'cholestrol')}  >
+                <Radio value="Yes"  mr={10}>Yes</Radio>
+                <Radio mr={10} value="No"  >No</Radio>
+                </RadioGroup>
+          </HStack> 
+
+      </Flex>
+      <Flex gap={12} justify={'center'}>
+      <Text as={'b'}>COVID:</Text>
+      <RadioGroup onChange={(e) => handleChange(e, 'covid')}  >
+                <Radio value="Yes"  mr={10}>Yes</Radio>
+                <Radio mr={10} value="No"  >No</Radio>
+                </RadioGroup>
+      </Flex>
+      <Flex gap={12} justify={'center'}>
+      <Text as={'b'}>History Of Cancer:</Text>
+      <RadioGroup onChange={(e) => handleChange(e, 'cancer')}  >
+                <Radio value="Yes"  mr={10}>Yes</Radio>
+                <Radio mr={10} value="No"  >No</Radio>
+                </RadioGroup>
+      </Flex>
+      <Flex gap={200}>
+        <HStack spacing={100} ml={20} >
+          <Text as={'b'}>Smoking:</Text>
+          <RadioGroup onChange={(e) => handleChange(e, 'smoking')} ml={8} >
+                <Radio value="Yes"  mr={10}>Yes</Radio>
+                <Radio mr={10} value="No"  >No</Radio>
+                </RadioGroup>
+                </HStack> 
+        <HStack spacing={100} ml={-10}>
+        <Text as={'b'}>Drinking:</Text>
+
+        <RadioGroup onChange={(e) => handleChange(e, 'drinking')}  >
+                <Radio value="Yes"  mr={10}>Yes</Radio>
+                <Radio mr={10} value="No"  >No</Radio>
+                </RadioGroup>
+          </HStack> 
+
+      </Flex>
+      <Flex gap={200}>
+        <HStack spacing={100} ml={20} >
+          <Text as={'b'}>Drugs/Addiction:</Text>
+          <RadioGroup onChange={(e) => handleChange(e, 'drugs')} ml={8} >
+                <Radio value="Yes"  mr={10}>Yes</Radio>
+                <Radio mr={10} value="No"  >No</Radio>
+                </RadioGroup>
+                </HStack> 
+        <HStack spacing={100} ml={-10}>
+        <Text as={'b'}>PCOD(for mothers):</Text>
+
+        <RadioGroup onChange={(e) => handleChange(e, 'pcod')}  >
+                <Radio value="Yes"  mr={10}>Yes</Radio>
+                <Radio mr={10} value="No"  >No</Radio>
+                </RadioGroup>
+          </HStack> 
+
+      </Flex>
     </Flex>
   )
 }
