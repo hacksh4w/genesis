@@ -11,6 +11,7 @@ import Footer from './components/Footer/Footer'
 import AdopterApplication from './pages/AdopterApplication'
 import AdopterProfile from './pages/AdopterProfile'
 import AdopterProf from './pages/AdopterProf'
+import DonorProfilePage from './pages/DonorProfilePage'
 
 const App = () => {
   return (
@@ -24,7 +25,8 @@ const App = () => {
           <Route path="/donors/:id" element={<DonorProfile/>}></Route>
           <Route path="/donorapplication" element={<DonorApplication/>}></Route>
           <Route path="/adopters" element={<AdopterProfile/>}></Route>
-          <Route path="/test" element={<AdopterProf/>}></Route>
+          <Route path="/test1" element={<AdopterProf/>}></Route>
+          <Route path="/test2" element={<DonorProfilePage/>}></Route>
           {/*} <Route path="/Genesis/adminlogin" element={<Signup/>}></Route>
         <Route path="/Genesis/transactions" element={<Signup/>}></Route>
         <Route path="/Genesis/signup" element={<Signup/>}></Route> */}
