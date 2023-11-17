@@ -2,10 +2,10 @@ import React from 'react';
 import LockFillIcon from 'remixicon-react/LockFillIcon';
 import MailFillIcon from 'remixicon-react/MailFillIcon';
 import UserFillIcon from 'remixicon-react/UserFillIcon';
-import "./Signup.css";
-import SignupInput from '../../components/SignupInput';
+import "./SignIn.css";
+import SignInInput from '../../components/SignInInput';
 
-const Signup = () => {
+const SignIn = () => {
     return (
         <div className="sign-up-page">
             <div className="container">
@@ -17,14 +17,12 @@ const Signup = () => {
                 </div>
                 <div className="login">
                     <h3 className="title">Sign Up</h3>
-                    <SignupInput icon={<UserFillIcon className='i' />} type="text" placeholder="Username" />
-                    <SignupInput icon={<MailFillIcon className='i' />} type="email" placeholder="Email" />
-                    <SignupInput icon={<LockFillIcon className='i' />} type="password" placeholder="Password" />
-                    <button className="login-btn">SIGN UP!</button>
-                    <p>Have an account? </p>
-                    {/* put linksss*/}
+                    <SignInInput icon={<MailFillIcon className='i' />} type="email" placeholder="Email" />
+                    <SignInInput icon={<LockFillIcon className='i' />} type="password" placeholder="Password" />
+                    <button className="login-btn">SIGN IN!</button>
+                    <p>Don't have an account?</p>
                     <div className="create">
-                        <a href="#">Sign In</a> 
+                        <a href="#">Sign up</a>  {/* put linksss*/}
                         <i className="ri-arrow-right-fill"></i>
                     </div>
                 </div>
@@ -33,5 +31,5 @@ const Signup = () => {
     );
 }
 
-export default Signup;
+export default SignIn;
 
