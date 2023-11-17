@@ -32,6 +32,7 @@ const Navbar = () => {
                 </Menu>
                 <Text fontSize={'17'} color={'blue.600'}>Adopter</Text>
                 <Text fontSize={'17'} color={'blue.600'}>Clinic Services</Text>
+                
                 <Avatar size={'sm'} bgColor={'blue.200'} ref={btnRef} onClick={onOpen} cursor={'pointer'}/>
                
                    
