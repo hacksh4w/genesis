@@ -23,6 +23,12 @@ const Form22 = () => {
         spouse1_blood: '',
         spouse2_blood: ''
     });
+    const handleChange = (e, field) => {
+        setFormData({
+          ...formData,
+          [field]: e.target.value,
+        });
+      };
     return (
         <Flex>
             <Tabs position="relative" variant="unstyled"  >

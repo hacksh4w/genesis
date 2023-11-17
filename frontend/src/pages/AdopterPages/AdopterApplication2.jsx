@@ -94,7 +94,7 @@ const AdopterApplication2 = () => {
                 </Stepper>
 
                 {currentPage == 0 ? <Form1 /> : currentPage == 1 ? <Form2 /> : currentPage == 2 ? <Form3 /> : currentPage == 3 ? <Form3 /> : <Form4 />}
-                <Flex w={600} alignItems={'center'} mt={5} gap={5}>
+                <Flex w={600} alignItems={'center'} mt={20} gap={5} justify={'center'}>
                     {currentPage!=0?<Button colorScheme="blue" onClick={() => handleBack()}>Back</Button>:""}
                     {currentPage < 4 ? <Button colorScheme="blue" onClick={() => handleNext()}>Next</Button> : <Button colorScheme="blue" onClick={() => handleSubmit()} >Submit</Button>}
                 </Flex>

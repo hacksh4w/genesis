@@ -10,6 +10,7 @@ import DonorCatalog from './pages//DonorPages/DonorCatalog'
 import DonorProfile from './pages/DonorPages/DonorProfile'
 import Footer from './components/Footer/Footer'
 import AdopterApplication from './pages/AdopterApplication'
+import AdopterApplication2 from './pages/AdopterPages/AdopterApplication2'
 import AdopterProfile from './pages/AdopterProfile'
 import AdopterProf from './pages/AdopterProf'
 import AdopterApplication2 from './pages/AdopterPages/AdopterApplication2'
@@ -25,6 +26,7 @@ const App = () => {
           <Route path="/donors" element={<DonorCatalog/>}></Route>
           <Route path="/donors/:id" element={<DonorProfile/>}></Route>
           <Route path="/donorapplication" element={<DonorApplication/>}></Route>
+          <Route path='/newadopterapplication' element={<AdopterApplication2/>}></Route>
           <Route path="/adopters" element={<AdopterProfile/>}></Route>
           <Route path="/newadopterapplication" element={<AdopterApplication2/>}></Route>
           <Route path="/test" element={<AdopterProf/>}></Route>
