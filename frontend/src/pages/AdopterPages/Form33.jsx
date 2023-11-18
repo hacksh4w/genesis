@@ -83,7 +83,7 @@ const Form33 = () => {
       </Flex>
       <Flex gap={12} justify={'center'}>
       <Text as={'b'}>COVID:</Text>
-      <RadioGroup onChange={(e) => handleChange(e, 'covid')}  >
+      <RadioGroup onChange={(e) => handleChange(e, 'covid')} ml={20}  >
                 <Radio value="Yes"  mr={10}>Yes</Radio>
                 <Radio mr={10} value="No"  >No</Radio>
                 </RadioGroup>
@@ -98,7 +98,7 @@ const Form33 = () => {
       <Flex gap={200}>
         <HStack spacing={100} ml={20} >
           <Text as={'b'}>Smoking:</Text>
-          <RadioGroup onChange={(e) => handleChange(e, 'smoking')} ml={8} >
+          <RadioGroup onChange={(e) => handleChange(e, 'smoking')} ml={24} >
                 <Radio value="Yes"  mr={10}>Yes</Radio>
                 <Radio mr={10} value="No"  >No</Radio>
                 </RadioGroup>
@@ -106,8 +106,8 @@ const Form33 = () => {
         <HStack spacing={100} ml={-10}>
         <Text as={'b'}>Drinking:</Text>
 
-        <RadioGroup onChange={(e) => handleChange(e, 'drinking')}  >
-                <Radio value="Yes"  mr={10}>Yes</Radio>
+        <RadioGroup onChange={(e) => handleChange(e, 'drinking')}  ml={20} >
+                <Radio value="Yes"  mr={12}>Yes</Radio>
                 <Radio mr={10} value="No"  >No</Radio>
                 </RadioGroup>
           </HStack> 
