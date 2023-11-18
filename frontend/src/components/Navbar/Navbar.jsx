@@ -32,7 +32,7 @@ const Navbar = () => {
                 </Menu>
                 <Text fontSize={'17'} color={'blue.600'}>Adopter</Text>
                 <Text fontSize={'17'} color={'blue.600'}>Clinic Services</Text>
-                
+
                 <Avatar size={'sm'} bgColor={'blue.200'} ref={btnRef} onClick={onOpen} cursor={'pointer'}/>
                
                    
@@ -66,7 +66,7 @@ const Navbar = () => {
             <Button variant='outline' mr={3} onClick={onClose}>
               Cancel
             </Button>
-            <Button colorScheme='blue'>Save</Button>
+            <Button colorScheme='green'>Pay Now</Button>
           </DrawerFooter>
         </DrawerContent>
       </Drawer>
