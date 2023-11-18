@@ -3,6 +3,9 @@ import { useNavigate } from "react-router";
 
 const DonorTile = (props) => {
     const navigate = useNavigate()
+    const handleClick = ()=>{
+        navigate(`/donors/${props.donorId}`, { state: { donorId: props.donorId } });
+    }
     return (
         <Flex h={280} w={215} minW={190} bgColor={'blue.50'} borderRadius={'10'} p={4} direction={'column'} alignItems={"center"}  justifyContent={'space-between'}>
             <Box bgColor={'blue.100'} w={100} h={100} borderRadius={'100'} mb={5}></Box>
@@ -21,7 +24,7 @@ const DonorTile = (props) => {
                     <Text fontSize={'13'} textColor={'blue.800'}>{props.eyeColor}</Text>
                 </Flex>
             </Flex>
-            <Button colorScheme="blue" mt={3} borderRadius={'20'} onClick={()=>navigate(`/donors/${props.donorId}`)}>View</Button>
+            <Button colorScheme="blue" mt={3} borderRadius={'20'} onClick={()=>handleClick()}>View</Button>
         </Flex>
     );
 }

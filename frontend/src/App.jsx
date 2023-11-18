@@ -13,6 +13,7 @@ import AdopterApplication from './pages/AdopterApplication'
 import AdopterApplication2 from './pages/AdopterPages/AdopterApplication2'
 import AdopterProfile from './pages/AdopterProfile'
 import AdopterProf from './pages/AdopterProf'
+import AdopterApplication2 from './pages/AdopterPages/AdopterApplication2'
 
 const App = () => {
   return (
@@ -27,6 +28,7 @@ const App = () => {
           <Route path="/donorapplication" element={<DonorApplication/>}></Route>
           <Route path='/newadopterapplication' element={<AdopterApplication2/>}></Route>
           <Route path="/adopters" element={<AdopterProfile/>}></Route>
+          <Route path="/newadopterapplication" element={<AdopterApplication2/>}></Route>
           <Route path="/test" element={<AdopterProf/>}></Route>
           {/*} <Route path="/Genesis/adminlogin" element={<Signup/>}></Route>
         <Route path="/Genesis/transactions" element={<Signup/>}></Route>

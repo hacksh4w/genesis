@@ -1,7 +1,11 @@
 import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Button, Flex, Heading, Text, useToast } from "@chakra-ui/react";
 import { useState } from "react";
+import { useLocation } from "react-router";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"
 const DonorProfile = () => {
+    const location = useLocation();
+    const donorId = location.state?.donorId;
+
     const [heartToggle, setHeartToggle] = useState(false)
     const[firstOpen,setfirstAccordian]=useState(true)
 
@@ -24,7 +28,7 @@ const DonorProfile = () => {
                 <Flex direction={'column'} alignItems={'center'} bgColor={'blue.50'} p={20} borderTopLeftRadius={20} borderBottomLeftRadius={20} >
                     <Button bgColor={'blue.50'} _hover={{ bgColor: "blue.50" }} borderRadius={100} left={-120} top={-38} onClick={() => handleHeartToggle()}>{heartToggle == true ? <AiFillHeart size={"2.5rem"} color={"skyblue"} /> : <AiOutlineHeart size={"2.5rem"} color={"skyblue"} />} </Button>
                     <Box bgColor={'blue.100'} h={200} w={200} borderRadius={100} mb={10}></Box>
-                    <Heading fontSize={25} color={'blue.800'}>Donor Id : 1001</Heading>
+                    <Heading fontSize={25} color={'blue.800'}>Donor Id : {donorId}</Heading>
                     <Heading>John Doe</Heading>
                 </Flex>
                 <Flex direction={'column'} position={"relative"}>
