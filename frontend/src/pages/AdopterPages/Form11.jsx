@@ -1,5 +1,5 @@
 import { ChevronDownIcon, PhoneIcon } from "@chakra-ui/icons";
-import { Flex, HStack, Input, InputGroup, InputLeftElement, Stack } from "@chakra-ui/react";
+import { Flex, HStack, Input, InputGroup, InputLeftElement, Menu, MenuButton, MenuItem, MenuList, Stack } from "@chakra-ui/react";
 import UserFillIcon from "remixicon-react/UserFillIcon";
 import { IoLocationSharp } from "react-icons/io5";
 import { MdOutlineFamilyRestroom } from "react-icons/md";
@@ -25,28 +25,31 @@ const Form11 = () => {
 
     return (
         <Flex direction={'column'} gap={5} w={600}>
-        <RadioGroup onChange={(e) => handleChange(e, 'single')}>
-            <HStack spacing={20}>
-                <Radio value="single">Single Parent</Radio>
-                <Radio value="married">Married Parent</Radio>
-                <Radio value="domestic">Domestic Partnership</Radio>
-                
-            </HStack>
-        </RadioGroup>
+        
             <InputGroup>
                 <InputLeftElement><MdOutlineFamilyRestroom size={17} /></InputLeftElement>
                 <Input placeholder="Familyname" variant={'filled'} onChange={(e) => handleChange(e, 'familyname')}></Input>
             </InputGroup>
-            <InputGroup w={400} mt={6} >
+            <Flex gap={6} w={600}>
+            <InputGroup >
                 <InputLeftElement
                     pointerEvents='none'
                     color='gray.300'
                     fontSize='1.2em'
                     children='$'
+                    textColor={'black'}
                 />
-                <Input placeholder='Annual Income' textAlign={'center'} />
-
+                <Input placeholder='Annual Income'  variant={'filled'} onChange={(e) => handleChange(e, 'annualincome')}/>
             </InputGroup>
+            <Menu>
+                <MenuButton backgroundColor={'gray.100'} borderRadius={5} w={300} >Marital Status <ChevronDownIcon/></MenuButton>
+                <MenuList>
+                    <MenuItem>Married</MenuItem>
+                    <MenuItem>Single</MenuItem>
+                    <MenuItem>Domestic Partnership</MenuItem>
+                </MenuList>
+            </Menu>
+            </Flex>
             <InputGroup>
                 <InputLeftElement><IoLocationSharp size={19} /></InputLeftElement>
                 <Input placeholder="Address" required={'true'} variant={'filled'} onChange={(e) => handleChange(e, 'address')}></Input>

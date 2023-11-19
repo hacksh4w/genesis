@@ -81,7 +81,7 @@ const DonorCatalog = () => {
                         <Input placeholder="search" borderRadius={'30'}
                             onChange={(e) => handleSearch(e.target.value)}
                         ></Input>
-                        <InputRightAddon borderTopRightRadius={'30'} borderBottomRightRadius={'30'}><SearchIcon onClick={handleSearch}/></InputRightAddon>
+                        <InputRightAddon borderTopRightRadius={'30'} borderBottomRightRadius={'30'} color={'blue.50'}><SearchIcon onClick={handleSearch}  color={'blue.500'}/></InputRightAddon>
                     </InputGroup>
                     <Flex flexWrap={'wrap'} gap={7}>
                         {donors && donors.map((donor) => (
