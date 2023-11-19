@@ -32,26 +32,22 @@ const Signup = () => {
                 email: userDataSignUp.email,
                 password: userDataSignUp.password,
             });
+            toast({
+                title: `check email for verification`,
+                status: "info",
+                isClosable: true,
+                position: "top",
+            });
             console.log(user)
 
             if (error) {
                 throw error;
             }
-            if (user) {
-                await supabase.from('users').insert([{ 
-                    name: userDataSignUp.name,
-                    email: userDataSignUp.email,
-                }]);
+            await supabase.from('users').insert([{ 
+                name: userDataSignUp.name,
+                email: userDataSignUp.email,
+            }]);
 
-                toast({
-                    title: `Welcome ${userDataSignUp.name}`,
-                    status: "success",
-                    isClosable: true,
-                    position: "top",
-                });
-
-                navigate(`/donors`);
-            }
         } catch (error) {
             console.error('Signup error:', error.message);
             toast({

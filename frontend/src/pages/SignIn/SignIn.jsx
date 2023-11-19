@@ -22,39 +22,35 @@ const SignIn = () => {
 
     const signin = async () => {
         try {
-            const { user,  error } =  await supabase.auth.signInWithPassword({
+            const { error } = await supabase.auth.signInWithPassword({
                 email: userDataSignIn.email,
                 password: userDataSignIn.password
             });
-            console.log(user)
     
             if (error) {
                 throw error;
             }
     
-            if (user) {
-                // User is authenticated, now fetch additional data
-                const { data: userData, error: userError } = await supabase
-                    .from('users')
-                    .select('name')
-                    .eq('email', userDataSignIn.email)
-                    .single();
+            // Fetch user data after sign-in
+            const { data, error: userError } = await supabase
+                .from('users')
+                .select('name')
+                .eq('email', userDataSignIn.email)
+                .single();
     
-                if (userError) {
-                    throw userError;
-                }
+            if (userError) {
+                throw userError;
+            }
     
-                if (userData) {
-                    toast({
-                        title: `Welcome ${userData.name}`,
-                        status: "success",
-                        isClosable: true,
-                        position: "top",
-                    });
-    
-                    navigate(`/donors`);
-                    console.log(userData);
-                }
+            if (data) {
+                const { name } = data;
+                toast({
+                    title: `Welcome ${name}`,
+                    status: 'success',
+                    isClosable: true,
+                    position: 'top',
+                });
+                navigate(`/donors`);
             }
         } catch (error) {
             console.error('Signin error:', error.message);

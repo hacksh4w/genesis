@@ -14,14 +14,28 @@ import AdopterProfile from './pages/AdopterProfile'
 import AdopterProf from './pages/AdopterProf'
 import AdopterApplication2 from './pages/AdopterPages/AdopterApplication2'
 import ClinicCatalog from './pages/ClinicPages/ClinicCatalog'
+import { useEffect, useState } from 'react'
+import { supabase } from './config/config'
 const App = () => {
+  const [session, setSession] = useState(null)
+
+  useEffect(() => {
+    supabase.auth.getSession().then(({ data: { session } }) => {
+      setSession(session)
+    })
+
+    supabase.auth.onAuthStateChange((_event, session) => {
+      setSession(session)
+    })
+  }, [])
   return (
+    
     <div className='App'>
       <ChakraProvider>
         <Routes>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/signin" element={<SignIn />}></Route>
-          <Route path="/" element={<LandingPage />}></Route>
+          <Route path="/" element={<SignIn />}></Route>
           <Route path="/clinics" element={<ClinicCatalog/>}></Route>
           <Route path="/donors" element={<DonorCatalog/>}></Route>
           <Route path="/donors/:id" element={<DonorProfile/>}></Route>
