@@ -81,56 +81,7 @@ const Form33 = () => {
           </HStack> 
 
       </Flex>
-      <Flex gap={12} justify={'center'}>
-      <Text as={'b'}>COVID:</Text>
-      <RadioGroup onChange={(e) => handleChange(e, 'covid')} ml={20}  >
-                <Radio value="Yes"  mr={10}>Yes</Radio>
-                <Radio mr={10} value="No"  >No</Radio>
-                </RadioGroup>
-      </Flex>
-      <Flex gap={12} justify={'center'}>
-      <Text as={'b'}>History Of Cancer:</Text>
-      <RadioGroup onChange={(e) => handleChange(e, 'cancer')}  >
-                <Radio value="Yes"  mr={10}>Yes</Radio>
-                <Radio mr={10} value="No"  >No</Radio>
-                </RadioGroup>
-      </Flex>
-      <Flex gap={200}>
-        <HStack spacing={100} ml={20} >
-          <Text as={'b'}>Smoking:</Text>
-          <RadioGroup onChange={(e) => handleChange(e, 'smoking')} ml={24} >
-                <Radio value="Yes"  mr={10}>Yes</Radio>
-                <Radio mr={10} value="No"  >No</Radio>
-                </RadioGroup>
-                </HStack> 
-        <HStack spacing={100} ml={-10}>
-        <Text as={'b'}>Drinking:</Text>
-
-        <RadioGroup onChange={(e) => handleChange(e, 'drinking')}  ml={20} >
-                <Radio value="Yes"  mr={12}>Yes</Radio>
-                <Radio mr={10} value="No"  >No</Radio>
-                </RadioGroup>
-          </HStack> 
-
-      </Flex>
-      <Flex gap={200}>
-        <HStack spacing={100} ml={20} >
-          <Text as={'b'}>Drugs/Addiction:</Text>
-          <RadioGroup onChange={(e) => handleChange(e, 'drugs')} ml={8} >
-                <Radio value="Yes"  mr={10}>Yes</Radio>
-                <Radio mr={10} value="No"  >No</Radio>
-                </RadioGroup>
-                </HStack> 
-        <HStack spacing={100} ml={-10}>
-        <Text as={'b'}>PCOD(for mothers):</Text>
-
-        <RadioGroup onChange={(e) => handleChange(e, 'pcod')}  >
-                <Radio value="Yes"  mr={10}>Yes</Radio>
-                <Radio mr={10} value="No"  >No</Radio>
-                </RadioGroup>
-          </HStack> 
-
-      </Flex>
+     
     </Flex>
   )
 }

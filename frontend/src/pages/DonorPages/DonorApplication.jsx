@@ -11,8 +11,7 @@ const steps = [
     { title: 'First', description: 'Personal Details' },
     { title: 'Second', description: 'Physical Attributes' },
     { title: 'Third', description: 'Health Info' },
-    { title: 'Fourth', description: 'Maternal History' },
-    { title: 'Fifth', description: 'Paternal History' }
+ 
 ];
 const DonorApplication = () => {
 
@@ -51,9 +50,7 @@ const DonorApplication = () => {
     const [formData1, setFormData1] = useState({});
     const [formData2, setFormData2] = useState({});
     const [formData3, setFormData3] = useState({});
-    const [formData4, setFormData4] = useState({});
-    const [formData5, setFormData5] = useState({});
-
+    
     const handleForm1Submit = () =>{
         setFormData1(formData1)
     }
@@ -63,12 +60,7 @@ const DonorApplication = () => {
     const handleForm3Submit = () =>{
         setFormData3(formData3)
     }
-    const handleForm4Submit = () =>{
-        setFormData4(formData4)
-    }
-    const handleForm5Submit = () =>{
-        setFormData5(formData5)
-    }
+  
     return (
         <>
             <Flex direction={'column'} h={'100vh'} p={10} alignItems={'center'}>
@@ -93,10 +85,10 @@ const DonorApplication = () => {
                     ))}
                 </Stepper>
 
-                {currentPage == 0 ? <Form1 /> : currentPage == 1 ? <Form2 /> : currentPage == 2 ? <Form3 /> : currentPage == 3 ? <Form3 /> : <Form4 />}
-                <Flex w={600} alignItems={'center'} mt={5} gap={5}>
+                {currentPage == 0 ? <Form1 /> : currentPage == 1 ? <Form2 /> :  <Form3 />}
+                <Flex w={600} alignItems={'center'} mt={5} gap={5} justify={'center'}>
                     {currentPage!=0?<Button colorScheme="blue" onClick={() => handleBack()}>Back</Button>:""}
-                    {currentPage < 4 ? <Button colorScheme="blue" onClick={() => handleNext()}>Next</Button> : <Button colorScheme="blue" onClick={() => handleSubmit()} >Submit</Button>}
+                    {currentPage < 2 ? <Button colorScheme="blue" onClick={() => handleNext()}>Next</Button> : <Button colorScheme="green" onClick={() => handleSubmit()} >Submit</Button>}
                 </Flex>
             </Flex>
         </>
