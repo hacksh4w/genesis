@@ -3,14 +3,15 @@ import ReactDOM from 'react-dom/client'
 import App from './App'
 import './index.css'
 //import ContextApi from './contexts./ContextApi'
+import { AuthProvider } from './contexts/AuthContext'
 import { BrowserRouter }  from 'react-router-dom'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-   {/*} <ContextApi> */}
+    <AuthProvider>
       <BrowserRouter>
         <App />
       </BrowserRouter>
-  {/*}  </ContextApi>     */}
+    </AuthProvider>
   </React.StrictMode>,
 );

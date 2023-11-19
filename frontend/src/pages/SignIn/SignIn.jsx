@@ -15,7 +15,7 @@ const SignIn = () => {
   const handleSignIn = async (e) => {
     e.preventDefault();
     try {
-      await handleLogin(email, password);
+      await login(email, password);
     } catch (error) {
       setErrorMessage('Invalid email or password');
       console.error('Error signing in:', error.message);
