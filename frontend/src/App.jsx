@@ -15,12 +15,37 @@ import AdopterProf from './pages/AdopterProf'
 import AdopterApplication2 from './pages/AdopterPages/AdopterApplication2'
 import ClinicCatalog from './pages/ClinicPages/ClinicCatalog'
 const App = () => {
+/* relocate this  */ 
+const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const { data } = await supabase.auth.getUser();
+        setUser(data.user);
+      } catch (error) {
+        console.error('Error fetching user:', error.message);
+      }
+    };
+
+    fetchUser();
+  }, [user]);
+
+  const handleLogin = (loggedInUser) => {
+    setUser(loggedInUser);
+  };
+
+  {/*const handleLogout = () => {
+    setUser(null);
+  }; */}
+
+
   return (
     <div className='App'>
       <ChakraProvider>
         <Routes>
           <Route path="/signup" element={<Signup />}></Route>
-          <Route path="/signin" element={<SignIn />}></Route>
+          <Route path="/signin" element={<SignIn onLogin={handleLogin} />}></Route>
           <Route path="/" element={<LandingPage />}></Route>
           <Route path="/clinics" element={<ClinicCatalog/>}></Route>
           <Route path="/donors" element={<DonorCatalog/>}></Route>

@@ -3,6 +3,7 @@ import LockFillIcon from 'remixicon-react/LockFillIcon';
 import MailFillIcon from 'remixicon-react/MailFillIcon';
 import UserFillIcon from 'remixicon-react/UserFillIcon';
 import "./SignIn.css";
+import { supabase } from '../../../supabaseConfig';
 import SignInInput from '../../components/SignInInput';
 
 const SignIn = () => {
