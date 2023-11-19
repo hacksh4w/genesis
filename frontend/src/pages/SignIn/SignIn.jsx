@@ -8,20 +8,28 @@ import propTypes from 'prop-types';
 
 const SignIn = () => {
   const { login } = useAuth();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+  const [userData, setUserData] = useState({
+    email: '',
+    password: ''
+  });
+
+  const handleChange = (e, field) => {
+    setData((prevData) => ({
+      ...prevData,
+      [field]: e.target.value
+    }));
+  };
+ // const [errorMessage, setErrorMessage] = useState('');
 
   const handleSignIn = async (e) => {
     e.preventDefault();
     try {
       await login(email, password);
     } catch (error) {
-      setErrorMessage('Invalid email or password');
+      //setErrorMessage('Invalid email or password');
       console.error('Error signing in:', error.message);
     }
   }; 
-
 
     return (
         <div className="sign-up-page">
@@ -38,20 +46,20 @@ const SignIn = () => {
                     icon={<MailFillIcon className='i' />}
                     type="email"
                     placeholder="Email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    value={userData.email}
+                    onChange={handleChange}
                     />
                     <SignInInput
                         icon={<LockFillIcon className='i' />}
                         type="password"
                         placeholder="Password"
-                        value={password}
-                        onChange={(e) => setPassword(e.target.value)}
+                        value={userData.password}
+                        onChange={handleChange}
                     />
                     <button className="login-btn" onClick={handleSignIn}>
                         SIGN IN!
                     </button>
-                    {errorMessage && <p>{errorMessage}</p>}
+                    {/*{errorMessage && <p>{errorMessage}</p>} */}
                     <p> Do not have an account?</p>
                     <div className="create">
                         <a href="#">Sign up</a>

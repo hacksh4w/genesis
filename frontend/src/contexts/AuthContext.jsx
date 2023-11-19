@@ -9,7 +9,7 @@ export const useAuth = () => {
 };
 
 export const AuthProvider = ({ children }) => {
-  const [user, setUser] = React.useState(supabase.auth.user());
+  //const [user, setUser] = React.useState(supabase.auth.user());
 
   const handleLogin = async (email, password) => {
     try {
@@ -20,26 +20,26 @@ export const AuthProvider = ({ children }) => {
       if (error) {
         throw error;
       }
-
       setUser(user);
     } catch (error) {
       console.error('Error signing in:', error.message);
     }
   };
 
-  const handleLogout = async () => {
+ /* change business logic 
+ const handleLogout = async () => {
     try {
       await supabase.auth.signOut();
       setUser(null);
     } catch (error) {
       console.error('Error signing out:', error.message);
     }
-  };
+  }; */
 
   const authContextValue = {
-    user,
+    //user,
     login: handleLogin,
-    logout: handleLogout,
+    //logout: handleLogout,
   };
 
   return (
