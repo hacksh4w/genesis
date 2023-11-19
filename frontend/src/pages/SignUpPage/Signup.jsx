@@ -4,21 +4,65 @@ import MailFillIcon from 'remixicon-react/MailFillIcon';
 import UserFillIcon from 'remixicon-react/UserFillIcon';
 import "./Signup.css";
 import SignupInput from '../../components/SignupInput';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { supabase } from '../../config/config';
+import { useToast } from '@chakra-ui/react';
 
 
 const Signup = () => {
-    const [userDataSignUp,setData]=useState({
-        name:'',
-        email:'',
-        password:''
-    })
-    const handleChange = (e,field) => {
-        setData({
+    const toast = useToast();
+    const navigate = useNavigate();
+
+    const [userDataSignUp, setUserDataSignUp] = useState({
+        name: '',
+        email: '',
+        password: ''
+    });
+
+    const handleChange = (e, field) => {
+        setUserDataSignUp({
             ...userDataSignUp,
-        [field]:e.target.value
-        })
-    }
+            [field]: e.target.value
+        });
+    };
+
+    const signup = async () => {
+        try {
+            const { user, error } = await supabase.auth.signUp({
+                email: userDataSignUp.email,
+                password: userDataSignUp.password,
+            });
+            console.log(user)
+
+            if (error) {
+                throw error;
+            }
+            if (user) {
+                await supabase.from('users').insert([{ 
+                    name: userDataSignUp.name,
+                    email: userDataSignUp.email,
+                }]);
+
+                toast({
+                    title: `Welcome ${userDataSignUp.name}`,
+                    status: "success",
+                    isClosable: true,
+                    position: "top",
+                });
+
+                navigate(`/donors`);
+            }
+        } catch (error) {
+            console.error('Signup error:', error.message);
+            toast({
+                title: 'Signup Error',
+                description: error.message,
+                status: 'error',
+                isClosable: true,
+                position: 'top',
+            });
+        }
+    };
     return (
         <div className="sign-up-page">
             <div className="container">
@@ -42,7 +86,7 @@ const Signup = () => {
                          <LockFillIcon className='i' />
                         <input type="password" placeholder="Password" onChange={(e)=>handleChange(e,'password')}/>
                     </div>
-                    <button className="login-btn">Sign Up</button>
+                    <button className="login-btn" onClick={()=>signup()}>Sign Up</button>
                     <p>Have an account? </p>
                     <div className="create">
                         <Link to='/signin'>Sign In</Link>

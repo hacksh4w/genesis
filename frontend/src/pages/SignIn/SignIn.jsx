@@ -1,12 +1,14 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import LockFillIcon from 'remixicon-react/LockFillIcon';
 import MailFillIcon from 'remixicon-react/MailFillIcon';
-import UserFillIcon from 'remixicon-react/UserFillIcon';
 import "./SignIn.css";
-import SignInInput from '../../components/SignInInput';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { supabase } from '../../config/config';
+import { useToast } from '@chakra-ui/react';
 
 const SignIn = () => {
+    const navigate=useNavigate()
+    const toast=useToast({})
     const [userDataSignIn,setData]=useState({
         email:'',
         password:''
@@ -18,6 +20,53 @@ const SignIn = () => {
         })
     }
 
+    const signin = async () => {
+        try {
+            const { user,  error } =  await supabase.auth.signInWithPassword({
+                email: userDataSignIn.email,
+                password: userDataSignIn.password
+            });
+            console.log(user)
+    
+            if (error) {
+                throw error;
+            }
+    
+            if (user) {
+                // User is authenticated, now fetch additional data
+                const { data: userData, error: userError } = await supabase
+                    .from('users')
+                    .select('name')
+                    .eq('email', userDataSignIn.email)
+                    .single();
+    
+                if (userError) {
+                    throw userError;
+                }
+    
+                if (userData) {
+                    toast({
+                        title: `Welcome ${userData.name}`,
+                        status: "success",
+                        isClosable: true,
+                        position: "top",
+                    });
+    
+                    navigate(`/donors`);
+                    console.log(userData);
+                }
+            }
+        } catch (error) {
+            console.error('Signin error:', error.message);
+            toast({
+                title: 'Signin Error',
+                description: error.message,
+                status: 'error',
+                isClosable: true,
+                position: 'top',
+            });
+        }
+    };
     return (
         <div className="sign-up-page">
             <div className="container">
@@ -37,7 +86,7 @@ const SignIn = () => {
                          <LockFillIcon className='i' />
                         <input type="password" placeholder="Password" onChange={(e)=>handleChange(e,'password')}/>
                     </div>
-                    <button className="login-btn">Sign In</button>
+                    <button className="login-btn" onClick={signin}>Sign In</button>
                     <p>Don't have an account?</p>
                     <div className="create">
                         <Link to={'/signup'}>Sign Up</Link>
@@ -50,4 +99,3 @@ const SignIn = () => {
 }
 
 export default SignIn;
-
