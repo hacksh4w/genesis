@@ -1,12 +1,17 @@
-import React from 'react';
+//import React from 'react';
 
-const SignupInput = ({ icon, type, placeholder }) => {
-    return (
-        <div className="text-input">
-            {icon}
-            <input type={type} placeholder={placeholder} />
-        </div>
-    );
-}
+const SignInInput = ({ icon, type, placeholder, value, onChange }) => {
+  return (
+    <div className="text-input">
+      {icon}
+      <input
+        type={type}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+      />
+    </div>
+  );
+};
 
-export default SignupInput;
+export default SignInInput;

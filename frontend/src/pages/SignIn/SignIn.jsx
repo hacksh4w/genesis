@@ -1,12 +1,31 @@
-import React from 'react';
+import { useState } from 'react';
 import LockFillIcon from 'remixicon-react/LockFillIcon';
 import MailFillIcon from 'remixicon-react/MailFillIcon';
-import UserFillIcon from 'remixicon-react/UserFillIcon';
 import "./SignIn.css";
-import { supabase } from '../../../supabaseConfig';
 import SignInInput from '../../components/SignInInput';
+import { useAuth } from '../../contexts/AuthContext';
+import propTypes from 'prop-types';
 
 const SignIn = () => {
+  const { login } = useAuth();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const handleSignIn = async (e) => {
+    e.preventDefault();
+
+    try {
+      // Call the login function from the useAuth hook
+      await login(email, password);
+      // You may also want to handle redirection or other actions upon successful login
+    } catch (error) {
+      setErrorMessage('Invalid email or password');
+      console.error('Error signing in:', error.message);
+    }
+  }; 
+
+
     return (
         <div className="sign-up-page">
             <div className="container">
@@ -18,12 +37,27 @@ const SignIn = () => {
                 </div>
                 <div className="login">
                     <h3 className="title">Sign Up</h3>
-                    <SignInInput icon={<MailFillIcon className='i' />} type="email" placeholder="Email" />
-                    <SignInInput icon={<LockFillIcon className='i' />} type="password" placeholder="Password" />
-                    <button className="login-btn">SIGN IN!</button>
-                    <p>Don't have an account?</p>
+                    <SignInInput
+                    icon={<MailFillIcon className='i' />}
+                    type="email"
+                    placeholder="Email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    />
+                    <SignInInput
+                        icon={<LockFillIcon className='i' />}
+                        type="password"
+                        placeholder="Password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
+                    <button className="login-btn" onClick={handleSignIn}>
+                        SIGN IN!
+                    </button>
+                    {errorMessage && <p>{errorMessage}</p>}
+                    <p> Do not have an account?</p>
                     <div className="create">
-                        <a href="#">Sign up</a>  {/* put linksss*/}
+                        <a href="#">Sign up</a>
                         <i className="ri-arrow-right-fill"></i>
                     </div>
                 </div>
@@ -31,6 +65,10 @@ const SignIn = () => {
         </div>
     );
 }
+
+SignIn.propTypes = {
+    onLogin: propTypes.func.isRequired, // Ensure onLogin is a required function prop
+};
 
 export default SignIn;
 
