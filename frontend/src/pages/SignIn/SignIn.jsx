@@ -14,11 +14,8 @@ const SignIn = () => {
 
   const handleSignIn = async (e) => {
     e.preventDefault();
-
     try {
-      // Call the login function from the useAuth hook
-      await login(email, password);
-      // You may also want to handle redirection or other actions upon successful login
+      await handleLogin(email, password);
     } catch (error) {
       setErrorMessage('Invalid email or password');
       console.error('Error signing in:', error.message);
@@ -66,9 +63,10 @@ const SignIn = () => {
     );
 }
 
+/*
 SignIn.propTypes = {
     onLogin: propTypes.func.isRequired, // Ensure onLogin is a required function prop
-};
+}; */
 
 export default SignIn;
 
