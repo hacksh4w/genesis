@@ -20,7 +20,7 @@ const steps = [
   { title: 'First', description: 'Basic Information' },
   { title: 'Second', description: 'Spouse Details' },
   { title: 'Third', description: 'Medical History' },
-  { title: 'Fourth', description: 'Preferences' },
+  
 ];
 
 const AdopterApplication2 = () => {
@@ -84,10 +84,10 @@ const AdopterApplication2 = () => {
           ))}
         </Stepper>
 
-        {currentPage === 0 ? <Form1 /> : currentPage === 1 ? <Form2 /> : currentPage === 2 ? <Form3 /> : currentPage === 3 ? <Form3 /> : <Form4 />}
+        {currentPage === 0 ? <Form1 /> : currentPage === 1 ? <Form2 /> :  <Form3 />   }
         <Flex w={600} alignItems={'center'} mt={20} gap={5} justify={'center'}>
           {currentPage !== 0 ? <Button colorScheme="blue" onClick={() => handleBack()}>Back</Button> : ""}
-          {currentPage < 4 ? <Button colorScheme="blue" onClick={() => handleNext()}>Next</Button> : <Button colorScheme="green" onClick={onOpen} >Submit</Button>}
+          {currentPage < 2 ? <Button colorScheme="blue" onClick={() => handleNext()}>Next</Button> : <Button colorScheme="green" onClick={onOpen} >Submit</Button>}
         </Flex>
       </Flex>
 

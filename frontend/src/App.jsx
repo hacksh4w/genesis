@@ -12,7 +12,8 @@ import Footer from './components/Footer/Footer'
 import AdopterApplication from './pages/AdopterApplication'
 import AdopterProfile from './pages/AdopterProfile'
 import AdopterProf from './pages/AdopterProf'
-
+import AdopterApplication2 from './pages/AdopterPages/AdopterApplication2'
+import ClinicCatalog from './pages/ClinicPages/ClinicCatalog'
 const App = () => {
   return (
     <div className='App'>
@@ -21,9 +22,11 @@ const App = () => {
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/signin" element={<SignIn />}></Route>
           <Route path="/" element={<LandingPage />}></Route>
+          <Route path="/clinics" element={<ClinicCatalog/>}></Route>
           <Route path="/donors" element={<DonorCatalog/>}></Route>
           <Route path="/donors/:id" element={<DonorProfile/>}></Route>
           <Route path="/donorapplication" element={<DonorApplication/>}></Route>
+          <Route path='/newadopterapplication' element={<AdopterApplication2/>}></Route>
           <Route path="/adopters" element={<AdopterProfile/>}></Route>
           <Route path="/test" element={<AdopterProf/>}></Route>
           {/*} <Route path="/Genesis/adminlogin" element={<Signup/>}></Route>
