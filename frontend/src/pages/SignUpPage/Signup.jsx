@@ -1,11 +1,24 @@
-import React from 'react';
+import React, { useState } from 'react';
 import LockFillIcon from 'remixicon-react/LockFillIcon';
 import MailFillIcon from 'remixicon-react/MailFillIcon';
 import UserFillIcon from 'remixicon-react/UserFillIcon';
 import "./Signup.css";
 import SignupInput from '../../components/SignupInput';
+import { Link } from 'react-router-dom';
+
 
 const Signup = () => {
+    const [userDataSignUp,setData]=useState({
+        name:'',
+        email:'',
+        password:''
+    })
+    const handleChange = (e,field) => {
+        setData({
+            ...userDataSignUp,
+        [field]:e.target.value
+        })
+    }
     return (
         <div className="sign-up-page">
             <div className="container">
@@ -17,14 +30,22 @@ const Signup = () => {
                 </div>
                 <div className="login">
                     <h3 className="title">Sign Up</h3>
-                    <SignupInput icon={<UserFillIcon className='i' />} type="text" placeholder="Username" />
-                    <SignupInput icon={<MailFillIcon className='i' />} type="email" placeholder="Email" />
-                    <SignupInput icon={<LockFillIcon className='i' />} type="password" placeholder="Password" />
-                    <button className="login-btn">SIGN UP!</button>
+                    <div className="text-input">
+                         <UserFillIcon className='i' />
+                        <input type="email" placeholder="Name" onChange={(e)=>handleChange(e,'name')}/>
+                    </div>
+                    <div className="text-input">
+                         <MailFillIcon className='i' />
+                        <input type="email" placeholder="Email" onChange={(e)=>handleChange(e,'email')}/>
+                    </div>
+                    <div className="text-input">
+                         <LockFillIcon className='i' />
+                        <input type="password" placeholder="Password" onChange={(e)=>handleChange(e,'password')}/>
+                    </div>
+                    <button className="login-btn">Sign Up</button>
                     <p>Have an account? </p>
-                    {/* put linksss*/}
                     <div className="create">
-                        <a href="#">Sign In</a> 
+                        <Link to='/signin'>Sign In</Link>
                         <i className="ri-arrow-right-fill"></i>
                     </div>
                 </div>
