@@ -1,6 +1,6 @@
 //import { useState, useContext } from 'react'
 import './App.css'
-import { AuthContext } from './contexts/AuthContext'
+//import { AuthContext } from './contexts/AuthContext'
 //import { supabase } from './utils/supabaseConfig'
 import { ChakraProvider } from '@chakra-ui/react'
 import Signup from './pages/SignUpPage/Signup'

@@ -23,7 +23,16 @@ export const AuthProvider = ({ children }) => {
       if (error) {
         throw error;
       }
-      setUser(user);
+      //setUser(user);
+      const { error: userError } = await supabase
+      .from('users')
+      .select('email')
+      .eq('email', email)
+    //  .single();
+
+  if (userError) {
+      throw userError;
+  }
       //navigate('/')
       //console.log(userData.password);
     } catch (error) {
@@ -43,7 +52,6 @@ export const AuthProvider = ({ children }) => {
 
   const authContextValue = {
     user,
-    //handleLogin
     login: handleLogin,
     //logout: handleLogout,
   };
