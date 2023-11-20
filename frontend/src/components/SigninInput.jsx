@@ -8,7 +8,8 @@ const SignInInput = ({ icon, type, placeholder, value, onChange }) => {
         type={type}
         placeholder={placeholder}
         value={value}
-        onChange={onChange}
+        //onChange={onChange}
+        onChange={(e) => onChange(e, type)}
       />
     </div>
   );

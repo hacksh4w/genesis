@@ -14,7 +14,7 @@ export const AuthProvider = ({ children }) => {
     const [user, setUser] = React.useState();
 
   const handleLogin = async (email, password) => {
-    e.preventDefault();
+    //e.preventDefault();
     try {
       const { user, error } = await supabase.auth.signInWithPassword({
         email,
