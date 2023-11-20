@@ -26,7 +26,7 @@ const SignIn = () => {
   const handleSignIn = async (e) => {
     e.preventDefault();
     try {
-      await login(email, password);
+      await login(userData.email, userData.password);
     } catch (error) {
       //setErrorMessage('Invalid email or password');
       console.error('Error signing in:', error.message);
@@ -73,10 +73,9 @@ const SignIn = () => {
     );
 }
 
-/*
+{/*
 SignIn.propTypes = {
-    onLogin: propTypes.func.isRequired, // Ensure onLogin is a required function prop
-}; */
-
+    login: propTypes.func.isRequired, // Ensure onLogin is a required function prop
+}; */}
 export default SignIn;
 

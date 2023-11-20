@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useState } from 'react';
 //import { useNavigate } from 'react-router';
 import { createContext, useContext } from 'react';
 import { supabase } from '../utils/supabaseConfig'; // Import Supabase instance
@@ -11,7 +11,7 @@ export const useAuth = () => {
 
 export const AuthProvider = ({ children }) => {
     //const navigate = useNavigate();
-    const [user, setUser] = React.useState();
+    const [user, setUser] = useState();
 
   const handleLogin = async (email, password) => {
     //e.preventDefault();
@@ -46,7 +46,7 @@ export const AuthProvider = ({ children }) => {
   }; */
 
   const authContextValue = {
-    //user,
+    user,
     login: handleLogin,
     //logout: handleLogout,
   };
