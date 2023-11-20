@@ -23,17 +23,13 @@ export const AuthProvider = ({ children }) => {
       if (error) {
         throw error;
       }
-      //setUser(user);
+      setUser(user);
       //navigate('/')
+      //console.log(userData.password);
     } catch (error) {
       console.error('Error signing in:', error.message);
     }
   };
-
- /* useEffect(() => {
-    setUser(supabase.auth.user());
-  }, []);
-  return user; */
 
  /* change business logic 
  const handleLogout = async () => {
@@ -47,6 +43,7 @@ export const AuthProvider = ({ children }) => {
 
   const authContextValue = {
     user,
+    //handleLogin
     login: handleLogin,
     //logout: handleLogout,
   };

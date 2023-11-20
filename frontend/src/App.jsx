@@ -21,7 +21,7 @@ const App = () => {
 
   return (
     <div className='App'>
-      <AuthContext.Provider value={AuthContext}>
+      {/*<AuthContext.Provider value={AuthContext}> */}
         <ChakraProvider>
           <Routes>
             <Route path="/signin" element={<SignIn />}></Route>
@@ -36,7 +36,7 @@ const App = () => {
             <Route path="/test" element={<AdopterProf />}></Route>
           </Routes>
         </ChakraProvider>
-      </AuthContext.Provider>
+      {/*</AuthContext.Provider> */}
     </div>
   );
 };

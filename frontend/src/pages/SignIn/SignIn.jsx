@@ -15,18 +15,24 @@ const SignIn = () => {
   });
 
   const handleChange = (e, field) => {
-    
-    setUserData((prevData) => ({
+    setUserData({
+        ...userData,
+    [field]:e.target.value
+    })
+   /* setUserData((prevData) => ({
       ...prevData,
       [field]: e.target.value
-    }));
+    })); */
   };
  // const [errorMessage, setErrorMessage] = useState('');
 
   const handleSignIn = async (e) => {
     e.preventDefault();
     try {
+        
       await login(userData.email, userData.password);
+      console.log(userData.email);
+      //value login il kerunilla
     } catch (error) {
       //setErrorMessage('Invalid email or password');
       console.error('Error signing in:', error.message);
@@ -73,9 +79,10 @@ const SignIn = () => {
     );
 }
 
-{/*
+
 SignIn.propTypes = {
     login: propTypes.func.isRequired, // Ensure onLogin is a required function prop
-}; */}
+}; 
+
 export default SignIn;
 
