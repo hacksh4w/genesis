@@ -30,8 +30,7 @@ const SignIn = () => {
             if (error) {
                 throw error;
             }
-    
-            // Fetch user data after sign-in
+
             const { data, error: userError } = await supabase
                 .from('users')
                 .select('name')

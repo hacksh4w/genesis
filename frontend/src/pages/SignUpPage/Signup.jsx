@@ -11,7 +11,7 @@ import { useToast } from '@chakra-ui/react';
 
 const Signup = () => {
     const toast = useToast();
-    const navigate = useNavigate();
+
 
     const [userDataSignUp, setUserDataSignUp] = useState({
         name: '',
