@@ -5,7 +5,7 @@ import "./SignIn.css";
 import SignInInput from '../../components/SignInInput';
 import { useAuth } from '../../contexts/AuthContext';
 import propTypes from 'prop-types';
-import { supabase } from '../../utils/supabaseConfig';
+//import { supabase } from '../../utils/supabaseConfig';
 
 const SignIn = () => {
   const { login } = useAuth();
@@ -15,7 +15,7 @@ const SignIn = () => {
   });
 
   const handleChange = (e, field) => {
-    setData((prevData) => ({
+    setUserData((prevData) => ({
       ...prevData,
       [field]: e.target.value
     }));

@@ -21,7 +21,7 @@ const App = () => {
 
   return (
     <div className='App'>
-      <AuthContext.Provider>
+      <AuthContext.Provider value={AuthContext}>
         <ChakraProvider>
           <Routes>
             <Route path="/signin" element={<SignIn />}></Route>
