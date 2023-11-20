@@ -5,6 +5,7 @@ import "./SignIn.css";
 import SignInInput from '../../components/SignInInput';
 import { useAuth } from '../../contexts/AuthContext';
 import propTypes from 'prop-types';
+import { supabase } from '../../utils/supabaseConfig';
 
 const SignIn = () => {
   const { login } = useAuth();

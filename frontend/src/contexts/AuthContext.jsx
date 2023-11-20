@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+//import { useNavigate } from 'react-router';
 import { createContext, useContext } from 'react';
 import { supabase } from '../utils/supabaseConfig'; // Import Supabase instance
 
@@ -9,9 +10,11 @@ export const useAuth = () => {
 };
 
 export const AuthProvider = ({ children }) => {
-  //const [user, setUser] = React.useState(supabase.auth.user());
+    //const navigate = useNavigate();
+    const [user, setUser] = React.useState();
 
   const handleLogin = async (email, password) => {
+    e.preventDefault();
     try {
       const { user, error } = await supabase.auth.signInWithPassword({
         email,
@@ -20,11 +23,17 @@ export const AuthProvider = ({ children }) => {
       if (error) {
         throw error;
       }
-      setUser(user);
+      //setUser(user);
+      //navigate('/')
     } catch (error) {
       console.error('Error signing in:', error.message);
     }
   };
+
+ /* useEffect(() => {
+    setUser(supabase.auth.user());
+  }, []);
+  return user; */
 
  /* change business logic 
  const handleLogout = async () => {
