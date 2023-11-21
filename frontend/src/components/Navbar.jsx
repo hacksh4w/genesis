@@ -18,7 +18,7 @@ const Navbar = (props) => {
   const btnRef = useRef()
 
   return (
-    <Flex bgColor={'blue.50'} mb={4} borderRadius={'30'} alignItems={'center'} p={4} justifyContent={'space-between'} >
+    <Flex bgColor={'blue.50'} mb={4} borderRadius={'30'} alignItems={'center'} p={4} justifyContent={'space-between'} boxShadow={'md'}>
       <Heading fontSize={'25'} ml={10}>Logo</Heading>
       <Flex alignItems={'center'} w={500} justifyContent={'space-between'}>
         <Menu  >

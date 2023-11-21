@@ -1,17 +1,20 @@
-import { Divider, Flex, Heading, Input, InputGroup, InputRightAddon, useToast } from "@chakra-ui/react";
+import { Box, Button, Divider, Flex, Heading, Image, Input, InputGroup, InputRightAddon, Text, useToast } from "@chakra-ui/react";
 import { SearchIcon } from '@chakra-ui/icons'
 import DonorTile from "../../components/Donor/DonorTile";
-
+import image1 from "../../assets/image1.svg"
 import FilterTag from "../../components/Donor/FilterTag";
 import { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar";
 import { useAuth } from "../../contexts/AuthContext";
 import { supabase } from "../../config/config";
+import { useNavigate } from "react-router";
 
 const DonorCatalog = () => {
     const AuthContext = useAuth()
     const userId = AuthContext.userID
     const userTag = AuthContext.userTag
+
+    const navigate = useNavigate()
 
     const toast = useToast({})
 
@@ -65,11 +68,10 @@ const DonorCatalog = () => {
         <Flex direction={'column'} p={7} h={'100vh'} w={'100vw'} >
             <Navbar userid={userId} usertag={userTag} />
             <Flex>
-                <Flex w={300} mr={10} p={4} direction={'column'} justifyContent={'space-evenly'} gap={5} minW={250}>
-                    <Heading fontSize={20}>Filters</Heading>
+                <Flex w={200} maxH={400} mr={5} p={4} direction={'column'} justifyContent={'space-evenly'}  gap={5} minW={250}>
                     <Divider />
                     <Heading fontSize={18}>Hair Colour</Heading>
-                    <Flex wrap={'wrap'} gap={4}>
+                    <Flex wrap={'wrap'} gap={4} >
                         {hairColorList && hairColorList.map((color) => (
                             <FilterTag key={color} name={color} />
                         ))}
@@ -101,6 +103,11 @@ const DonorCatalog = () => {
                         )}
                     </Flex>
                 </Flex>
+                <Flex maxH={460} w={350} ml={10}direction={'column'} alignItems={'center'} bgColor={'blue.50'} p={10} borderRadius={15} boxShadow={'sm'}>
+                        <Image src={image1} h={200} w={200} mb={10}></Image>
+                        <Text fontSize={18} mb={5} color="blue.600">Become a donor now</Text>
+                        <Button colorScheme="blue" borderRadius={20} onClick={()=>navigate('/donorapplication')} >Apply</Button>
+                    </Flex>
             </Flex>
         </Flex>
     );

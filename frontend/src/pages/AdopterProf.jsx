@@ -1,6 +1,7 @@
 import { Flex, Box, Image, Divider, AbsoluteCenter, Text, Heading, Tabs, TabList, Tab, TabPanels, TabPanel } from "@chakra-ui/react";
 import woman from '../../src/assets/woman1.avif'
 const AdopterProf = () => {
+    const basicInfoList=[{title1:"Address"},{title2:"City"} ,{title3:"Country"}, {title4:"Pincode"}]
     return (
         <Flex w={'100vw'} direction={'column'} h={'100vh'}>
             <Flex h={110} w={'100vw'} bgColor={'blue.100'}></Flex>
@@ -17,23 +18,12 @@ const AdopterProf = () => {
                         </AbsoluteCenter>
                     </Box>
                     <Flex direction={'column'} ml={10}>
-                        <Text fontSize={16}><span style={{ fontWeight: 'bolder' }}>Address : </span>Grace Villa, Kakkanad, Kochi</Text>
-                        <Text fontSize={16}><span style={{ fontWeight: 'bolder' }}>City : </span>Kochi</Text>
-                        <Text fontSize={16}><span style={{ fontWeight: 'bolder' }}>Country : </span>India</Text>
-                        <Text fontSize={16}><span style={{ fontWeight: 'bolder' }}>Pincode : </span>682021</Text>
+                        <Text fontSize={17}><span style={{ fontWeight: 'bolder' }}>Address : </span>Grace Villa, Kakkanad, Kochi</Text>
+                        <Text fontSize={17}><span style={{ fontWeight: 'bolder' }}>City : </span>Kochi</Text>
+                        <Text fontSize={17}><span style={{ fontWeight: 'bolder' }}>Country : </span>India</Text>
+                        <Text fontSize={17}><span style={{ fontWeight: 'bolder' }}>Pincode : </span>682021</Text>
                     </Flex>
 
-                    <Box position='relative' padding='5'>
-                        <Divider borderWidth={1.5} borderColor={'blue.200'} />
-                        <AbsoluteCenter px='4' color={'blue.800'} bg='white' fontWeight={'semibold'} >
-                            Interests
-                        </AbsoluteCenter>
-                    </Box>
-                    <Flex direction={'column'} ml={10}>
-                        <Text fontSize={16} fontWeight={'semibold'}>Football</Text>
-                        <Text fontSize={16} fontWeight={'semibold'}>Music</Text>
-                        <Text fontSize={16} fontWeight={'semibold'}>Arts and Crafts</Text>
-                    </Flex>
                 </Flex>
                 <Flex direction={'column'} mt={-20} w={470}>
                 <Tabs variant={'soft-rounded'} >
