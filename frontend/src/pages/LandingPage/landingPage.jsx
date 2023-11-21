@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import shape from '../../assets/shape.png';
 import '@fortawesome/fontawesome-free/css/all.css';
 import family from '../../assets/fam.png';
-import SignIn from '../SignIn/SignIn';
 import './LandingPage.css'; // Create a CSS file for styling and import it
 import { Link } from 'react-router-dom';
 

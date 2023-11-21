@@ -1,4 +1,4 @@
-import { Flex, Box, Image, Divider, AbsoluteCenter, Text, Heading, Tabs, TabList, Tab, TabPanels, TabPanel, Icon, HStack, useDisclosure,Button, Input } from "@chakra-ui/react";
+import { Flex, Box, Image, Divider, AbsoluteCenter, Text, Heading, Tabs, TabList, Tab, TabPanels, TabPanel, Icon, HStack, useDisclosure, Button, Input } from "@chakra-ui/react";
 import woman from '../../src/assets/woman1.avif'
 import { LuPencil } from "react-icons/lu";
 import {
@@ -9,24 +9,24 @@ import {
     ModalFooter,
     ModalBody,
     ModalCloseButton,
-  } from '@chakra-ui/react'
+} from '@chakra-ui/react'
 const AdopterProf = () => {
-    const basicInfoList=[{title1:"Address"},{title2:"City"} ,{title3:"Country"}, {title4:"Pincode"}]
+    const basicInfoList = [{ title1: "Address" }, { title2: "City" }, { title3: "Country" }, { title4: "Pincode" }]
     const { isOpen, onOpen, onClose } = useDisclosure()
 
     return (
-        
+
         <Flex w={'100vw'} direction={'column'} h={'100vh'}>
             <Flex h={110} w={'100vw'} bgColor={'blue.100'}></Flex>
             <Box width={200} height={200} borderRadius='120' borderColor={'blue.100'} overflow='hidden' ml={"10%"} mt={-85} borderWidth={'10px'}>
                 <Image src={woman} />
             </Box>
             <Flex gap={180} w={'85vw'}>
-                
+
                 <Flex direction={'column'} w={'42%'} mt={4} >
                     <Flex gap={20}>
-                    <Heading ml={130} fontSize={25} mb={5}>Adopter Id : 1234   </Heading>
-                    <LuPencil size={25} cursor={'pointer'} onClick={onOpen}/>
+                        <Heading ml={130} fontSize={25} mb={5}>Adopter Id : 1234   </Heading>
+                        <LuPencil size={25} cursor={'pointer'} onClick={onOpen} />
                     </Flex>
                     <Box position='relative' padding='5'>
                         <Divider borderWidth={1.5} borderColor={'blue.200'} />
@@ -43,7 +43,7 @@ const AdopterProf = () => {
 
                 </Flex>
                 <Flex direction={'column'} mt={-20} w={470}>
-                <Tabs variant={'soft-rounded'} >
+                    <Tabs variant={'soft-rounded'} >
                         <TabList>
                             <Tab w={135} >Parent 1</Tab>
                             <Tab w={135}>Parent 2</Tab>
@@ -64,61 +64,60 @@ const AdopterProf = () => {
                 </Flex>
             </Flex>
             <Modal isOpen={isOpen} onClose={onClose} >
-        <ModalOverlay />
-        <ModalContent >
-          <ModalHeader>Edit Profile</ModalHeader>
-          <ModalCloseButton />
-          <ModalBody  >
-            <Flex direction={'column'} gap={5}>
-                <Flex gap={10}>
-                    <Text mt={2} fontWeight={'semibold'} >Name:</Text>
-                    <Input h={8} w={60}></Input>
-                </Flex>
-                <Flex gap={8}>
-                <Flex gap={2}>
-                    <Text mt={2} fontWeight={'semibold'} >Phone:</Text>
-                    <Input type="tel" h={8}></Input>
-                </Flex>
-                <Flex gap={6}>
-                    <Text mt={2} fontWeight={'semibold'} >Email:</Text>
-                    <Input type="email" h={8}></Input>
-                </Flex>
-                </Flex>
-                <Flex gap={8}>
-                <Flex gap={2}>
-                    <Text mt={2} fontWeight={'semibold'} >Age:</Text>
-                    <Input type="number" h={8}></Input>
-                </Flex>
-                <Flex gap={6}>
-                    <Text mt={2} fontWeight={'semibold'} >DOB:</Text>
-                    <Input type="text"></Input>
-                </Flex>
-                </Flex>
-                <Flex gap={8}>
-                <Flex gap={2}>
-                    <Text mt={2} fontWeight={'semibold'} >Gender:</Text>
-                    <Input type="text" h={8}></Input>
-                </Flex>
-                <Flex gap={6}>
-                    <Text  mt={2} fontWeight={'semibold'} >Occupation:</Text>
-                    <Input type="text" h={8}></Input>
-                </Flex>
-                </Flex>
-                
-            </Flex>
-          </ModalBody>
+                <ModalOverlay />
+                <ModalContent >
+                    <ModalHeader>Edit Profile</ModalHeader>
+                    <ModalBody  >
+                        <Flex direction={'column'} gap={5}>
+                            <Flex gap={10}>
+                                <Text mt={2} fontWeight={'semibold'} >Name:</Text>
+                                <Input h={8} w={60}></Input>
+                            </Flex>
+                            <Flex gap={8}>
+                                <Flex gap={2}>
+                                    <Text mt={2} fontWeight={'semibold'} >Phone:</Text>
+                                    <Input type="tel" h={8}></Input>
+                                </Flex>
+                                <Flex gap={6}>
+                                    <Text mt={2} fontWeight={'semibold'} >Email:</Text>
+                                    <Input type="email" h={8}></Input>
+                                </Flex>
+                            </Flex>
+                            <Flex gap={8}>
+                                <Flex gap={2}>
+                                    <Text mt={2} fontWeight={'semibold'} >Age:</Text>
+                                    <Input type="number" h={8}></Input>
+                                </Flex>
+                                <Flex gap={6}>
+                                    <Text mt={2} fontWeight={'semibold'} >DOB:</Text>
+                                    <Input type="text"></Input>
+                                </Flex>
+                            </Flex>
+                            <Flex gap={8}>
+                                <Flex gap={2}>
+                                    <Text mt={2} fontWeight={'semibold'} >Gender:</Text>
+                                    <Input type="text" h={8}></Input>
+                                </Flex>
+                                <Flex gap={6}>
+                                    <Text mt={2} fontWeight={'semibold'} >Occupation:</Text>
+                                    <Input type="text" h={8}></Input>
+                                </Flex>
+                            </Flex>
 
-          <ModalFooter>
-            <Button colorScheme='green' mr={3} >
-              Submit
-            </Button>
-            <Button colorScheme='blue' onClick={onClose}>Close</Button>
-          </ModalFooter>
-        </ModalContent>
-      </Modal>
+                        </Flex>
+                    </ModalBody>
+
+                    <ModalFooter>
+                        <Button colorScheme='green' mr={3} >
+                            Submit
+                        </Button>
+                        <Button colorScheme='blue' onClick={onClose}>Close</Button>
+                    </ModalFooter>
+                </ModalContent>
+            </Modal>
         </Flex>
-        
-        
+
+
     );
 }
 

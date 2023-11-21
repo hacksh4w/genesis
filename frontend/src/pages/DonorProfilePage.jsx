@@ -87,7 +87,7 @@ const DonorProfilePage = () => {
             </Box>
             <Flex gap={180} w={'85vw'}>
                 <Flex direction={'column'} w={'42%'} mt={4}>
-                    <Heading ml={130} fontSize={25} mb={5}>Donor Id : 1234</Heading>
+                    <Heading ml={160} fontSize={25} mb={5}>Donor Id : {userid}</Heading>
                     <Box position='relative' padding='5'>
                         <Divider borderWidth={1.5} borderColor={'blue.200'} />
                         <AbsoluteCenter px='4' color={'blue.800'} bg='white' fontWeight={'semibold'} >
