@@ -3,7 +3,7 @@ import './App.css'
 import { ChakraProvider } from '@chakra-ui/react'
 import Signup from './pages/SignUpPage/Signup'
 import SignIn from './pages/SignIn/SignIn'
-import LandingPage from './pages/LandingPage/LandingPage'
+import LandingPage from './pages/LandingPage/landingPage'
 import { Routes, Route } from "react-router-dom"
 import DonorApplication from './pages/DonorPages/DonorApplication'
 import DonorCatalog from './pages//DonorPages/DonorCatalog'
@@ -33,6 +33,7 @@ const App = () => {
     <div className='App'>
       <ChakraProvider>
         <Routes>
+          <Route path='/landing' element={<LandingPage/>}></Route>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/signin" element={<SignIn />}></Route>
           <Route path="/" element={<SignIn />}></Route>
