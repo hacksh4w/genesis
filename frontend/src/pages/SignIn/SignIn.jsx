@@ -62,6 +62,7 @@ const SignIn = () => {
             });
         }
     };
+
     return (
         <div className="sign-up-page">
             <div className="container">
@@ -82,7 +83,7 @@ const SignIn = () => {
                         <input type="password" placeholder="Password" onChange={(e)=>handleChange(e,'password')}/>
                     </div>
                     <button className="login-btn" onClick={signin}>Sign In</button>
-                    <p>Don't have an account?</p>
+                    <p> Dont have an account?</p>
                     <div className="create">
                         <Link to={'/signup'}>Sign Up</Link>
                         <i className="ri-arrow-right-fill"></i>
