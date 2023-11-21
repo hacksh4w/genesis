@@ -5,7 +5,16 @@ import ClinicTile from '../../components/Clinic/ClinicTile'
 import { useState } from "react";
 import Navbar from "../../components/Navbar";
 const ClinicCatalog = () => {
-    let clinicList = [{
+    let clinicList = [
+        {
+            clinicId: 487,
+            clinicName: "OVOBANK Ltd",
+            location: "Spain",
+            service: "Sperm Banks",
+            description:"Ovobank ID makes it possible to optimize egg donation treatments to the maximum thanks to its extensive donor database.",
+            telephone: 441613941303,
+        },
+        {
         clinicId: 240,
         clinicName: "Pride Angel Ltd",
         location: "UK",
@@ -14,14 +23,7 @@ const ClinicCatalog = () => {
         telephone: 75225368744,
 
     },
-    {
-        clinicId: 487,
-        clinicName: "OVOBANK Ltd",
-        location: "Spain",
-        service: "Sperm Banks",
-        description:"Ovobank ID makes it possible to optimize egg donation treatments to the maximum thanks to its extensive donor database.",
-        telephone: 441613941303,
-    },
+   
     {
         clinicId: 622,
         clinicName: "Hegde Fertility",
