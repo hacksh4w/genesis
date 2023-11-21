@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState } from 'react';
 import { supabase } from '../config/config';
 
 const AuthContext = createContext();
