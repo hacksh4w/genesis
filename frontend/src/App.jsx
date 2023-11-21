@@ -34,6 +34,7 @@ const App = () => {
     <div className='App'>
       <ChakraProvider>
         <Routes>
+          <Route path='/landing' element={<LandingPage/>}></Route>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/signin" element={<SignIn />}></Route>
           <Route path="/" element={<LandingPage />}></Route>
