@@ -42,13 +42,11 @@ const DonorProfilePage = () => {
                     </Flex>
                 </Flex>
                 <Flex direction={'column'} mt={-20} >
-                <Tabs>
+                <Tabs variant={'soft-rounded'}>
                         <TabList>
                             <Tab>Personal Info</Tab>
                             <Tab>Physical Attributes</Tab>
                             <Tab>Health Info</Tab>
-                            <Tab>Maternal History</Tab>
-                            <Tab>Paternal History</Tab>
                         </TabList>
                         <TabPanels>
                             <TabPanel p={4}>
