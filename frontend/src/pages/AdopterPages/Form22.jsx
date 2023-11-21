@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState } from "react";
-import { Flex, HStack, Input, InputGroup, InputLeftElement, Stack, Tab, Tabs, Box, TabList, TabIndicator, TabPanel, TabPanels, VStack, Text,Menu,MenuList,MenuButton,MenuItem,Button } from "@chakra-ui/react";
+import { Flex, HStack, Input, InputGroup, InputLeftElement, Stack, Tab, Tabs, Box, TabList, TabIndicator, TabPanel, TabPanels, VStack, Text, Menu, MenuList, MenuButton, MenuItem, Button } from "@chakra-ui/react";
 import { PhoneIcon, EmailIcon, ChevronDownIcon, CheckIcon } from '@chakra-ui/icons'
 import { Icon } from '@chakra-ui/react'
 import { Radio, RadioGroup } from '@chakra-ui/react'
@@ -25,10 +25,10 @@ const Form22 = () => {
     });
     const handleChange = (e, field) => {
         setFormData({
-          ...formData,
-          [field]: e.target.value,
+            ...formData,
+            [field]: e.target.value,
         });
-      };
+    };
     return (
         <Flex>
             <Tabs position="relative" variant="unstyled"  >
@@ -43,7 +43,7 @@ const Form22 = () => {
                     ml={10}
                     borderRadius="1px"
                 />
-                <TabPanels > 
+                <TabPanels >
                     <TabPanel>
                         <Flex direction={'column'} w={600} gap={5}>
                             <Input placeholder='Name' onChange={(e) => handleChange(e, 'spouse1_name')}></Input>
@@ -68,45 +68,45 @@ const Form22 = () => {
                                     </InputLeftElement>
                                     <Input type='tel' placeholder='Phone number' onChange={(e) => handleChange(e, 'spouse1_phone')} />
                                 </InputGroup>                            </Flex>
-                                <Flex gap={8}>
-            <InputGroup>
+                            <Flex gap={8}>
+                                <InputGroup>
 
-<InputLeftElement pointerEvents='none'>
-    <Icon as={FaRegAddressCard} />
-</InputLeftElement>
-<Input type='email' placeholder='Aadhar' onChange={(e) => handleChange(e, 'spouse1_aadhar')} />
-</InputGroup>
-</Flex>
+                                    <InputLeftElement pointerEvents='none'>
+                                        <Icon as={FaRegAddressCard} />
+                                    </InputLeftElement>
+                                    <Input type='email' placeholder='Aadhar' onChange={(e) => handleChange(e, 'spouse1_aadhar')} />
+                                </InputGroup>
+                            </Flex>
 
-                                <HStack> 
-                                <Text  as='b' >Gender:   </Text>
-                                
+                            <HStack>
+                                <Text as='b' >Gender:   </Text>
+
                                 <RadioGroup onChange={(e) => handleChange(e, 'spouse1_sex')} >
-                <Radio value="male"  mr={10}>Male</Radio>
-                <Radio mr={10} value="female"  >Female</Radio>
-                <Radio value="intersex">Intersex</Radio>
+                                    <Radio value="male" mr={10}>Male</Radio>
+                                    <Radio mr={10} value="female"  >Female</Radio>
+                                    <Radio value="intersex">Intersex</Radio>
 
-                </RadioGroup>
-                
-            </HStack>
-            <Menu onChange={(e) => handleChange(e, 'spouse1_blood')}  >
-                            <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-                                Blood Group
-                            </MenuButton>
-                            <MenuList>
-                                <MenuItem>O+</MenuItem>
-                                <MenuItem>O-</MenuItem>
-                                <MenuItem>A+</MenuItem>
-                                <MenuItem>B+</MenuItem>
-                                <MenuItem>AB+</MenuItem>
+                                </RadioGroup>
 
-                            </MenuList>
-                        </Menu>        
+                            </HStack>
+                            <Menu onChange={(e) => handleChange(e, 'spouse1_blood')}  >
+                                <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+                                    Blood Group
+                                </MenuButton>
+                                <MenuList>
+                                    <MenuItem>O+</MenuItem>
+                                    <MenuItem>O-</MenuItem>
+                                    <MenuItem>A+</MenuItem>
+                                    <MenuItem>B+</MenuItem>
+                                    <MenuItem>AB+</MenuItem>
+
+                                </MenuList>
+                            </Menu>
 
                         </Flex>
                     </TabPanel>
                     <TabPanel>
-                    <Flex direction={'column'} w={600} gap={5}>
+                        <Flex direction={'column'} w={600} gap={5}>
                             <Input placeholder='Name' onChange={(e) => handleChange(e, 'spouse2_name')}></Input>
                             <Input
                                 placeholder="DOB"
@@ -129,40 +129,40 @@ const Form22 = () => {
                                     </InputLeftElement>
                                     <Input type='tel' placeholder='Phone number' onChange={(e) => handleChange(e, 'spouse2_phone')} />
                                 </InputGroup>                            </Flex>
-                                <Flex gap={8}>
-            <InputGroup>
+                            <Flex gap={8}>
+                                <InputGroup>
 
-<InputLeftElement pointerEvents='none'>
-    <Icon as={FaRegAddressCard} />
-</InputLeftElement>
-<Input type='email' placeholder='Aadhar' onChange={(e) => handleChange(e, 'spouse2_aadhar')} />
-</InputGroup>
-</Flex>
+                                    <InputLeftElement pointerEvents='none'>
+                                        <Icon as={FaRegAddressCard} />
+                                    </InputLeftElement>
+                                    <Input type='email' placeholder='Aadhar' onChange={(e) => handleChange(e, 'spouse2_aadhar')} />
+                                </InputGroup>
+                            </Flex>
 
-                                <HStack> 
-                                <Text  as='b' >Gender:   </Text>
-                                
+                            <HStack>
+                                <Text as='b' >Gender:   </Text>
+
                                 <RadioGroup onChange={(e) => handleChange(e, 'spouse2_sex')} >
-                <Radio value="male"  mr={10}>Male</Radio>
-                <Radio mr={10} value="female"  >Female</Radio>
-                <Radio value="intersex">Intersex</Radio>
+                                    <Radio value="male" mr={10}>Male</Radio>
+                                    <Radio mr={10} value="female"  >Female</Radio>
+                                    <Radio value="intersex">Intersex</Radio>
 
-                </RadioGroup>
-                
-            </HStack>
-            <Menu onChange={(e) => handleChange(e, 'spouse2_blood')}>
-                            <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
-                                Blood Group
-                            </MenuButton>
-                            <MenuList>
-                                <MenuItem>O+</MenuItem>
-                                <MenuItem>O-</MenuItem>
-                                <MenuItem>A+</MenuItem>
-                                <MenuItem>B+</MenuItem>
-                                <MenuItem>AB+</MenuItem>
+                                </RadioGroup>
 
-                            </MenuList>
-                        </Menu>        
+                            </HStack>
+                            <Menu onChange={(e) => handleChange(e, 'spouse2_blood')}>
+                                <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
+                                    Blood Group
+                                </MenuButton>
+                                <MenuList>
+                                    <MenuItem>O+</MenuItem>
+                                    <MenuItem>O-</MenuItem>
+                                    <MenuItem>A+</MenuItem>
+                                    <MenuItem>B+</MenuItem>
+                                    <MenuItem>AB+</MenuItem>
+
+                                </MenuList>
+                            </Menu>
 
                         </Flex>
                     </TabPanel>
