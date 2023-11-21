@@ -4,7 +4,7 @@ import { supabase } from '../config/config';
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
-  //const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null);
   const [userID, setUserID] = useState(null);
   const [userTag,setUserTag]=useState(null)
 

@@ -47,7 +47,7 @@ const SignIn = () => {
                         <input type="password" placeholder="Password" onChange={(e)=>handleChange(e,'password')}/>
                     </div>
                     <button className="login-btn" onClick={handleSignin}>Sign In</button>
-                    <p>Don't have an account?</p>
+                    <p> Don't have an account?</p>
                     <div className="create">
                         <Link to={'/signup'}>Sign Up</Link>
                         <i className="ri-arrow-right-fill"></i>
