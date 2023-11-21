@@ -25,6 +25,7 @@ const App = () => {
         <ChakraProvider>
           <Routes>
             <Route path="/signin" element={<SignIn />}></Route>
+            <Route path="/login" element={<SignIn />}></Route>
             <Route path="/signup" element={<Signup />}></Route>
             <Route path="/" element={<LandingPage />}></Route>
             <Route path="/clinics" element={<ClinicCatalog />}></Route>
