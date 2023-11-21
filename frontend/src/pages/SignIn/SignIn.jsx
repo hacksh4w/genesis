@@ -1,68 +1,32 @@
-import  { useState } from 'react';
+import { useState } from 'react';
 import LockFillIcon from 'remixicon-react/LockFillIcon';
 import MailFillIcon from 'remixicon-react/MailFillIcon';
-import "./SignIn.css";
+import './SignIn.css';
 import { Link, useNavigate } from 'react-router-dom';
-import { supabase } from '../../config/config';
 import { useToast } from '@chakra-ui/react';
+import { useAuth } from '../../contexts/AuthContext'; // Import AuthContext
 
 const SignIn = () => {
-    const navigate=useNavigate()
-    const toast=useToast({})
-    const [userDataSignIn,setData]=useState({
-        email:'',
-        password:''
-    })
-    const handleChange = (e,field) => {
-        setData({
-            ...userDataSignIn,
-        [field]:e.target.value
-        })
-    }
+  const navigate = useNavigate();
+  const toast = useToast({});
+  const { signIn } = useAuth(); // Access the signIn method from AuthContext
 
-    const signin = async () => {
-        try {
-            const { error } = await supabase.auth.signInWithPassword({
-                email: userDataSignIn.email,
-                password: userDataSignIn.password
-            });
-    
-            if (error) {
-                throw error;
-            }
+  const [userDataSignIn, setUserDataSignIn] = useState({
+    email: '',
+    password: '',
+  });
 
-            const { data, error: userError } = await supabase
-                .from('users')
-                .select('name')
-                .eq('email', userDataSignIn.email)
-                .single();
-    
-            if (userError) {
-                throw userError;
-            }
-    
-            if (data) {
-                const { name } = data;
-                toast({
-                    title: `Welcome ${name}`,
-                    status: 'success',
-                    isClosable: true,
-                    position: 'top',
-                });
-                navigate(`/donors`);
-            }
-        } catch (error) {
-            console.error('Signin error:', error.message);
-            toast({
-                title: 'Signin Error',
-                description: error.message,
-                status: 'error',
-                isClosable: true,
-                position: 'top',
-            });
-        }
-    };
+  const handleChange = (e, field) => {
+    setUserDataSignIn({
+      ...userDataSignIn,
+      [field]: e.target.value,
+    });
+  };
 
+  const handleSignin = () => {
+    const { email, password } = userDataSignIn;
+    signIn(email, password, navigate, toast);
+  };
     return (
         <div className="sign-up-page">
             <div className="container">
@@ -82,8 +46,8 @@ const SignIn = () => {
                          <LockFillIcon className='i' />
                         <input type="password" placeholder="Password" onChange={(e)=>handleChange(e,'password')}/>
                     </div>
-                    <button className="login-btn" onClick={signin}>Sign In</button>
-                    <p> Dont have an account?</p>
+                    <button className="login-btn" onClick={handleSignin}>Sign In</button>
+                    <p>Don't have an account?</p>
                     <div className="create">
                         <Link to={'/signup'}>Sign Up</Link>
                         <i className="ri-arrow-right-fill"></i>

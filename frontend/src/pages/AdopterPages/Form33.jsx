@@ -30,54 +30,36 @@ const Form33 = () => {
       <Flex gap={80}>
         <HStack spacing={100}>
           <Text as={'b'}>Asthma:</Text>
-          <RadioGroup onChange={(e) => handleChange(e, 'asthma')} >
-                <Radio value="Yes"  mr={10}>Yes</Radio>
-                <Radio mr={10} value="No"  >No</Radio>
-                </RadioGroup>
+          <Input placeholder='Yes/No'  variant={'filled'} onChange={(e) => handleChange(e, 'asthma')}/>
                 </HStack> 
         <HStack ml={6} spacing={100}>
         <Text as={'b'}>HIV/AIDS:</Text>
 
-        <RadioGroup onChange={(e) => handleChange(e, 'hiv')} >
-                <Radio value="Yes"  mr={10}>Yes</Radio>
-                <Radio mr={10} value="No"  >No</Radio>
-                </RadioGroup>
+        <Input placeholder='Yes/No'  variant={'filled'} onChange={(e) => handleChange(e, 'hiv')}/>
           </HStack> 
 
       </Flex>
       <Flex gap={350}>
         <HStack spacing={100}>
           <Text as={'b'}>UTI:</Text>
-          <RadioGroup onChange={(e) => handleChange(e, 'uti')} ml={8} >
-                <Radio value="Yes"  mr={10}>Yes</Radio>
-                <Radio mr={10} value="No"  >No</Radio>
-                </RadioGroup>
+          <Input placeholder='Yes/No'  variant={'filled'} onChange={(e) => handleChange(e, 'uti')}/>
                 </HStack> 
         <HStack spacing={100}>
         <Text as={'b'}>Allergies:</Text>
-
-        <RadioGroup onChange={(e) => handleChange(e, 'allergies')}  >
-                <Radio value="Yes"  mr={10}>Yes</Radio>
-                <Radio mr={10} value="No"  >No</Radio>
-                </RadioGroup>
+        <Input placeholder='Yes/No'  variant={'filled'} onChange={(e) => handleChange(e, 'allergies')}/>
           </HStack> 
 
       </Flex>
       <Flex gap={350}>
         <HStack spacing={100} >
           <Text as={'b'}>Diabetes:</Text>
-          <RadioGroup onChange={(e) => handleChange(e, 'diabetes')} ml={8} >
-                <Radio value="Yes"  mr={10}>Yes</Radio>
-                <Radio mr={10} value="No"  >No</Radio>
-                </RadioGroup>
+          <Input placeholder='Yes/No'  variant={'filled'} onChange={(e) => handleChange(e, 'diabetes')}/>
+
                 </HStack> 
         <HStack spacing={100} ml={-10}>
         <Text as={'b'}>Cholestrol:</Text>
+        <Input placeholder='Yes/No'  variant={'filled'} onChange={(e) => handleChange(e, 'cholestrol')}/>
 
-        <RadioGroup onChange={(e) => handleChange(e, 'cholestrol')}  >
-                <Radio value="Yes"  mr={10}>Yes</Radio>
-                <Radio mr={10} value="No"  >No</Radio>
-                </RadioGroup>
           </HStack> 
 
       </Flex>

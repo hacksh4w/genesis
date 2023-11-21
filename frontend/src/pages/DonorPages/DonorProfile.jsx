@@ -83,24 +83,6 @@ const DonorProfile = () => {
                                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto soluta numquam accusamus, nam, et quis sed deserunt, voluptates itaque dolore voluptatum molestiae. Doloremque animi omnis voluptatum? Id iure tempora hic!
                             </AccordionPanel>
                         </AccordionItem>
-                        <AccordionItem>
-                            <AccordionButton borderRadius={10} _expanded={{ bgColor:"blue.100"}} onClick={()=>setfirstAccordian(true)} justifyContent={'space-between'} color={'blue.700'} fontWeight={'semibold'}>
-                                Maternal Family
-                                <AccordionIcon />
-                            </AccordionButton>
-                            <AccordionPanel>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto soluta numquam accusamus, nam, et quis sed deserunt, voluptates itaque dolore voluptatum molestiae. Doloremque animi omnis voluptatum? Id iure tempora hic!
-                            </AccordionPanel>
-                        </AccordionItem>
-                        <AccordionItem>
-                            <AccordionButton borderRadius={10} _expanded={{ bgColor:"blue.100"}} onClick={()=>setfirstAccordian(true)} justifyContent={'space-between'} color={'blue.700'} fontWeight={'semibold'}>
-                                Paternal family
-                                <AccordionIcon />
-                            </AccordionButton>
-                            <AccordionPanel>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto soluta numquam accusamus, nam, et quis sed deserunt, voluptates itaque dolore voluptatum molestiae. Doloremque animi omnis voluptatum? Id iure tempora hic!
-                            </AccordionPanel>
-                        </AccordionItem>
                     </Accordion>
                     <Button position={"fixed"} top={"83vh"} p={5} w={120} colorScheme="blue" borderRadius={20} onClick={() => handleToast()}>Order Now</Button>
                 </Flex>

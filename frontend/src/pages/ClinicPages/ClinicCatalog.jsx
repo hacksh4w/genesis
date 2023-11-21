@@ -3,7 +3,7 @@ import { Divider, Flex, Heading, Input, InputGroup, InputRightAddon } from "@cha
 import { SearchIcon } from '@chakra-ui/icons'
 import ClinicTile from '../../components/Clinic/ClinicTile'
 import { useState } from "react";
-import Navbar from "../../components/Navbar/Navbar";
+import Navbar from "../../components/Navbar";
 const ClinicCatalog = () => {
     let clinicList = [{
         clinicId: 240,
