@@ -1,5 +1,6 @@
 import { Flex, Box, Image, Divider, AbsoluteCenter, Text, Heading, Tabs, TabList, Tab, TabPanels, TabPanel, Icon, HStack, useDisclosure, Button, Input } from "@chakra-ui/react";
 import woman from '../../src/assets/woman1.avif'
+import { LuPencil } from "react-icons/lu";
 import Modal1 from '../../src/components/Modal1'
 import {
     Modal,
