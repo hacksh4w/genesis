@@ -32,7 +32,7 @@ const Form22 = () => {
       };
     return (
         <Flex>
-                <Tabs position="relative" variant="unstyled"  >
+            <Tabs position="relative" variant="unstyled"  >
                 <TabList  >
                     <Tab px={40} >Spouse 1</Tab>
                     <Tab px={40}>Spouse 2</Tab>
@@ -78,18 +78,22 @@ const Form22 = () => {
                                     </InputGroup>
                                 </Flex>
 
-                                <HStack> 
+                                <HStack>
+                                <Flex gap={6}> 
                                     <Text  as='b' >Gender:   </Text>
-                                    
+                                    <Input placeholder="spouse1_gender" variant={'filled'} onChange={(e)=>handleChange(e.target.value,'spouse1_gender')}></Input>
+                                    <Text  as='b' >Blood Group:   </Text>
+                                    <Input placeholder="spouse1_blood" variant={'filled'} onChange={(e)=>handleChange(e.target.value,'spouse1_blood')}></Input>
+                                </Flex>
+                                    {/*
                                     <RadioGroup onChange={(e) => handleChange(e, 'spouse1_sex')} >
                                         <Radio value="male"  mr={10}>Male</Radio>
                                         <Radio mr={10} value="female"  >Female</Radio>
                                         <Radio value="intersex">Intersex</Radio>
-
-                                    </RadioGroup>
+                                    </RadioGroup> */}
                 
                                 </HStack>
-                                 <Menu onChange={(e) => handleChange(e, 'spouse1_blood')}  >
+                                {/* <Menu onChange={(e) => handleChange(e, 'spouse1_blood')}  >
                                     <MenuButton as={Button} rightIcon={<ChevronDownIcon />}>
                                         Blood Group
                                     </MenuButton>
@@ -101,7 +105,7 @@ const Form22 = () => {
                                         <MenuItem>AB+</MenuItem>
 
                                     </MenuList>
-                                </Menu>        
+                                </Menu>    */}    
 
                             </Flex>
                         </TabPanel>
@@ -138,8 +142,13 @@ const Form22 = () => {
                                         <Input type='email' placeholder='Aadhar' onChange={(e) => handleChange(e, 'spouse2_aadhar')} />
                                     </InputGroup>
                                 </Flex>
-
-                                <HStack> 
+                                <Flex gap={6}> 
+                                    <Text  as='b' >Gender:   </Text>
+                                    <Input placeholder="spouse2_gender" variant={'filled'} onChange={(e)=>handleChange(e.target.value,'spouse2_gender')}></Input>
+                                    <Text  as='b' >Blood Group:   </Text>
+                                    <Input placeholder="spouse2_blood" variant={'filled'} onChange={(e)=>handleChange(e.target.value,'spouse2_blood')}></Input>
+                                </Flex>
+                               {/*} <HStack> 
                                 <Text  as='b' >Gender:   </Text>
                                 <RadioGroup onChange={(e) => handleChange(e, 'spouse2_sex')} >
                                     <Radio value="male"  mr={10}>Male</Radio>
@@ -158,8 +167,7 @@ const Form22 = () => {
                                     <MenuItem>B+</MenuItem>
                                     <MenuItem>AB+</MenuItem>
                                 </MenuList>
-                            </Menu>        
-
+                            </Menu> */}       
                         </Flex>
                     </TabPanel>
                 </TabPanels>

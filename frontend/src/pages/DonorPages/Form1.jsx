@@ -24,6 +24,7 @@ const Form1 = ({ onFormDataChange }) => {
     setFormData(updatedFormData);
     onFormDataChange(updatedFormData);
     };
+    
     return (
         <Flex direction={'column'} gap={5} w={600}>
             <InputGroup>
