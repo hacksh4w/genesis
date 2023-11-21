@@ -28,7 +28,12 @@ const Navbar = (props) => {
             <MenuItem _active={{ color: "blue.500" }} onClick={() => navigate("/donorapplication")}>Become Donor</MenuItem>
           </MenuList>
         </Menu>
-        <Text fontSize={'17'} color={'blue.600'}>Adopter</Text>
+        <Menu  >
+          <MenuButton fontSize={'17'} as={Text} color={'blue.600'} >Adopter<ChevronDownIcon fontSize={20} color={'blue.600'} /></MenuButton>
+          <MenuList >
+            <MenuItem _active={{ color: "blue.500" }} onClick={() => navigate("/newadopterapplication")}>Become Adopter</MenuItem>
+          </MenuList>
+        </Menu>
         <Text fontSize={'17'} color={'blue.600'}>Clinic Services</Text>
 
         <Menu  >
