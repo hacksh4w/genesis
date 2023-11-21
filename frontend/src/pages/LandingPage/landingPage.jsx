@@ -71,6 +71,10 @@ function LandingPage() {
             <div className='container1'>
               <div className='logo'>
                 <h3>logo</h3>
+                <button className='toggle-btn'>
+                <i className='far fa-moon'></i>
+                <i className='far fa-sun'></i>
+              </button>
               </div>
 
               <div className='overlay'></div>
@@ -106,10 +110,7 @@ function LandingPage() {
 
           <div className='bottom-area'>
             <div className='container1'>
-              <button className='toggle-btn'>
-                <i className='far fa-moon'></i>
-                <i className='far fa-sun'></i>
-              </button>
+            Copyright © 2023 Love Finds a Home ®
             </div>
           </div>
         </div>

@@ -74,6 +74,7 @@ header .container1 {
 .logo {
   display: flex;
   align-items: center;
+  gap:80rem;
   cursor: pointer;
 }
 
@@ -112,7 +113,7 @@ header .container1 {
 .btn1 {
   display: inline-flex;
   
-  padding: 1.4rem 2rem;
+  padding: 1.2rem 1rem;
   font-weight: bold;
   color: #fff !important;
   background-color: var(--mainColor);
@@ -272,3 +273,8 @@ header .container1 {
 
 
 
+.bottom-area{
+    text-align: center;
+    font-weight:300;
+    font-family:'Courier New', Courier, monospace;
+}
