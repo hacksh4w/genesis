@@ -1,7 +1,6 @@
 import { Flex, Menu, MenuButton, MenuItem, MenuList, Text, Heading, Button, Input, useDisclosure, Box, HStack, Center, useColorMode, useColorModeValue } from '@chakra-ui/react'
 import { ChevronDownIcon, DeleteIcon } from '@chakra-ui/icons'
 import { useNavigate } from 'react-router';
-import woman from '../../assets/woman1.avif'
 import { Avatar } from '@chakra-ui/react'
 import {
   Drawer,
@@ -12,14 +11,14 @@ import {
   DrawerCloseButton,
 } from '@chakra-ui/react'
 import { useRef, useState } from 'react';
-const Navbar = () => {
+const Navbar = (props) => {
   const navigate = useNavigate()
   const [open, setDrawerOpen] = useState(false)
   const { isOpen, onOpen, onClose } = useDisclosure()
   const btnRef = useRef()
+
   return (
     <Flex bgColor={'blue.50'} mb={4} borderRadius={'30'} alignItems={'center'} p={4} justifyContent={'space-between'} >
-
       <Heading fontSize={'25'} ml={10}>Logo</Heading>
       <Flex alignItems={'center'} w={500} justifyContent={'space-between'}>
         <Menu  >
@@ -34,10 +33,10 @@ const Navbar = () => {
 
         <Menu  >
           <MenuButton><Avatar size={'sm'} bgColor={'blue.200'} cursor={'pointer'} /></MenuButton>
-          <MenuList >
+          {props.usertag=="donor"?<MenuList><MenuItem _active={{ color: "blue.500" }} >Profile</MenuItem></MenuList>:props.usertag=="adopter"?<MenuList >
             <MenuItem _active={{ color: "blue.500" }} ref={btnRef} onClick={onOpen}>Cart</MenuItem>
             <MenuItem _active={{ color: "blue.500" }} >Profile</MenuItem>
-          </MenuList>
+          </MenuList>:<MenuList><MenuItem _active={{ color: "blue.500" }} >Profile</MenuItem></MenuList>}
         </Menu>
 
         <Button colorScheme="blue" borderRadius={'30'}>Log out</Button>

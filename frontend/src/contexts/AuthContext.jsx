@@ -5,6 +5,8 @@ const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [userID, setUserID] = useState(null);
+  const [userTag,setUserTag]=useState(null)
 
   const signIn = async (email, password, navigate, toast) => {
     try {
@@ -19,7 +21,7 @@ export const AuthProvider = ({ children }) => {
 
       const { data, error: userError } = await supabase
         .from('users')
-        .select('name')
+        .select()
         .eq('email', email)
         .single();
 
@@ -28,13 +30,14 @@ export const AuthProvider = ({ children }) => {
       }
 
       if (data) {
-        const { name } = data;
         toast({
-          title: `Welcome ${name}`,
+          title: `Welcome ${data.name}`,
           status: 'success',
           isClosable: true,
           position: 'top',
         });
+        setUserID(data.id);
+        setUserTag(data.tag)
         navigate(`/donors`);
       }
     } catch (error) {
@@ -51,6 +54,8 @@ export const AuthProvider = ({ children }) => {
 
   const value = {
     user,
+    userID,
+    userTag,
     signIn,
   };
 

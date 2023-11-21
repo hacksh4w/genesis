@@ -12,7 +12,7 @@ import {
     MenuOptionGroup,
     MenuDivider,
 } from '@chakra-ui/react'
-const Form3 = () => {
+const Form3 = ({onFormDataChange}) => {
     const [formData, setFormData] = useState({
         eye_disorders: '',
         allergies: '',
@@ -22,71 +22,26 @@ const Form3 = () => {
         skin_infection: '',
 
     });
-    const handleChange = (e, field) => {
-        setFormData({
-            ...formData,
-            [field]: e.target.value,
-        });
+    const handleChange = (value, field) => {
+        const updatedFormData = { ...formData, [field]: value };
+    setFormData(updatedFormData);
+    onFormDataChange(updatedFormData);
     };
     return (
-        <Flex direction={'column'} gap={10} mt={10} >
-            <Flex gap={80} mb={5}>
-        <HStack spacing={100}>
-          <Text as={'b'}>Allergies:</Text>
-          <RadioGroup onChange={(e) => handleChange(e, 'allergies')} >
-                <Radio value="Yes"  mr={10}>Yes</Radio>
-                <Radio mr={10} value="No"  >No</Radio>
-                </RadioGroup>
-                </HStack> 
-        <HStack ml={6} spacing={100}>
-        <Text as={'b'}>Cancer:</Text>
+        <Flex direction={'column'} gap={5} w={600}>
+            <Flex gap={6}>
+                <Input placeholder="Eye Disorders" variant={'filled'} onChange={(e)=>handleChange(e.target.value,'eye_disorders')}></Input>
+                <Input placeholder="Allergies" variant={'filled'} onChange={(e)=>handleChange(e.target.value,'allergies')}></Input>
+            </Flex>
+            <Flex gap={6}>
+                <Input placeholder="Cancer" variant={'filled'} onChange={(e)=>handleChange(e.target.value,'cancer')}></Input>
+                <Input placeholder="Cholestrol" variant={'filled'} onChange={(e)=>handleChange(e.target.value,'cholestrol')}></Input>
+            </Flex>
+            <Flex gap={6}>
+                <Input placeholder="Asthma" variant={'filled'} onChange={(e)=>handleChange(e.target.value,'asthma')}></Input>
+                <Input placeholder="Skin Infection" variant={'filled'} onChange={(e)=>handleChange(e.target.value,'skin_infection')}></Input>
+            </Flex>
 
-        <RadioGroup onChange={(e) => handleChange(e, 'cancer')} >
-                <Radio value="Yes"  mr={10}>Yes</Radio>
-                <Radio mr={10} value="No"  >No</Radio>
-                </RadioGroup>
-          </HStack> 
-
-      </Flex>
- 
-                <Flex gap={80} mb={5}>
-        <HStack spacing={100}>
-          <Text as={'b'}>Cholestrol:</Text>
-          <RadioGroup onChange={(e) => handleChange(e, 'cholestrol')} >
-                <Radio value="Yes"  mr={10}>Yes</Radio>
-                <Radio mr={10} value="No"  >No</Radio>
-                </RadioGroup>
-                </HStack> 
-        <HStack ml={6} spacing={100} mb={5}>
-        <Text as={'b'}>Asthma:</Text>
-
-        <RadioGroup onChange={(e) => handleChange(e, 'asthma')} >
-                <Radio value="Yes"  mr={10}>Yes</Radio>
-                <Radio mr={10} value="No"  >No</Radio>
-                </RadioGroup>
-          </HStack> 
-          
-
-      </Flex>
-      <Flex gap={80}>
-        <HStack spacing={100}>
-        <Text as={'b'}>Eye Disorders:</Text>
-          <RadioGroup onChange={(e) => handleChange(e, 'eye_disorderes')} >
-                <Radio value="Yes"  mr={10}>Yes</Radio>
-                <Radio mr={10} value="No"  >No</Radio>
-                </RadioGroup>
-                </HStack> 
-        <HStack ml={-1} spacing={100}>
-        <Text as={'b'}>Skin Infection:</Text>
-          <RadioGroup onChange={(e) => handleChange(e, 'skin_ifn')} >
-                <Radio value="Yes"  mr={10}>Yes</Radio>
-                <Radio mr={10} value="No"  >No</Radio>
-                </RadioGroup>
-          </HStack> 
-          
-
-      </Flex>
-    
         </Flex>
 
     );
