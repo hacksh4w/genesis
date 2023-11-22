@@ -12,6 +12,7 @@ import {
 } from '@chakra-ui/react'
 import { useRef, useState } from 'react';
 import CartTile from './Cart/CartTile';
+import { Link } from 'react-router-dom';
 const Navbar = (props) => {
   const navigate = useNavigate()
   const [open, setDrawerOpen] = useState(false)
@@ -35,8 +36,9 @@ const Navbar = (props) => {
             <MenuItem _active={{ color: "blue.500" }} onClick={() => navigate("/newadopterapplication")}>Become Adopter</MenuItem>
           </MenuList>
         </Menu>
+        <Link to={'/clinics'}>
         <Text fontSize={'17'} color={'blue.600'}>Clinic Services</Text>
-
+        </Link>
         <Menu  >
           <MenuButton><Avatar size={'sm'} bgColor={'blue.200'} cursor={'pointer'} /></MenuButton>
           {props.usertag=="donor"?<MenuList><MenuItem _active={{ color: "blue.500" }} onClick={()=>navigate("/donorprofilepage")}>Profile</MenuItem></MenuList>:props.usertag=="adopter"?<MenuList >
