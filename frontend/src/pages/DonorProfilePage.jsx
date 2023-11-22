@@ -1,3 +1,4 @@
+
 import { Flex, Box, Image, Divider, AbsoluteCenter, Text, Heading, Tabs, TabList, Tab, TabPanels, TabPanel, Button, useToast, Input, useDisclosure } from "@chakra-ui/react";
 
 import woman from '../../src/assets/woman1.avif'
@@ -5,8 +6,15 @@ import { EditIcon } from "@chakra-ui/icons";
 import { useEffect, useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { supabase } from "../config/config";
+import {
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+} from '@chakra-ui/react'
 import Modal1 from "../components/Modal1";
-//import { useToast } from "@chakra-ui/react";
 const DonorProfilePage = () => {
     const [edit,setEdit] = useState(false);
 
@@ -29,6 +37,8 @@ const DonorProfilePage = () => {
                     .eq('user_id', userid)
 
                 setPersonalInfo(Data[0])
+
+                
 
                 if (errorData) throw errorData
             } catch (error) {
@@ -77,7 +87,6 @@ const DonorProfilePage = () => {
         fetchDetails()
 
     }, [])
-    
     return ( 
         <Flex w={'100vw'} direction={'column'} h={'100vh'}>
             <Flex h={110} w={'100vw'} bgColor={'blue.100'} alignItems={'center'} justifyContent={'flex-end'} p={8}>
@@ -138,7 +147,58 @@ const DonorProfilePage = () => {
                     </Tabs>
                 </Flex>
             </Flex>
-            <Modal1/>
+            <Modal isOpen={isOpen} onClose={onClose} >
+                <ModalOverlay />
+                <ModalContent>
+                    <ModalHeader>Edit Profile</ModalHeader>
+                    <ModalBody  >
+                        <Flex direction={'column'} gap={5}>
+                            <Flex gap={10}>
+                                <Text mt={2} fontWeight={'semibold'} >Phone</Text>
+                                <Input h={8} w={60} placeholder={personalInfo.phone} onChange={(e)=>handleChange(e,'phone')}></Input>
+                            </Flex>
+                            <Flex gap={8}>
+                                <Flex gap={2}>
+                                    <Text mt={2} fontWeight={'semibold'} >State:</Text>
+                                    <Input type="tel" h={8} placeholder={personalInfo.state} onChange={(e)=>handleChange(e,'state')}></Input>
+                                </Flex>
+                                <Flex gap={6}>
+                                    <Text mt={2} fontWeight={'semibold'} >City:</Text>
+                                    <Input type="email" h={8} placeholder={personalInfo.city} onChange={(e)=>handleChange(e,'city')}></Input>
+                                </Flex>
+                            </Flex>
+                            <Flex gap={8}>
+                                <Flex gap={2}>
+                                    <Text mt={2} fontWeight={'semibold'} >Age:</Text>
+                                    <Input type="number" h={8} placeholder={personalInfo.age} onChange={(e)=>handleChange(e,'age')}></Input>
+                                </Flex>
+                                <Flex gap={6}>
+                                    <Text mt={2} fontWeight={'semibold'} >Education Level:</Text>
+                                    <Input type="text" placeholder={personalInfo.education_level} onChange={(e)=>handleChange(e,'education_level')}></Input>
+                                </Flex>
+                            </Flex>
+                            <Flex gap={8}>
+                                <Flex gap={2}>
+                                    <Text mt={2} fontWeight={'semibold'} >Address:</Text>
+                                    <Input type="text" h={8} placeholder={personalInfo.address} onChange={(e)=>handleChange(e,'address')}></Input>
+                                </Flex>
+                                <Flex gap={6}>
+                                    <Text mt={2} fontWeight={'semibold'} >Occupation:</Text>
+                                    <Input type="text" h={8} placeholder={personalInfo.occupation} onChange={(e)=>handleChange(e,'occupation')}></Input>
+                                </Flex>
+                            </Flex>
+
+                        </Flex>
+                    </ModalBody>
+
+                    <ModalFooter>
+                        <Button colorScheme='green' mr={3} onClick={handleSubmit} >
+                            Submit
+                        </Button>
+                        <Button colorScheme='blue' onClick={onClose}>Close</Button>
+                    </ModalFooter>
+                </ModalContent>
+            </Modal>
         </Flex>
      );
 }

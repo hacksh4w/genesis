@@ -12,7 +12,7 @@ const CartTile = () => {
                 <IoPersonCircleOutline size={80} color="#BEE3F8"/>
               </Box>
               <Flex direction={'column'} >
-                <Text fontSize={19} fontWeight={'semibold'}>Donor Id : 1234</Text>
+                <Text fontSize={19} fontWeight={'semibold'}>Donor Id : 6</Text>
                 <Flex alignItems={'center'} gap={5}>
                 <Text fontSize={21} fontWeight={'bold'}>$ 145</Text>
                 <Button size={10} sx={{all:'unset'}}><AddIcon color={'blue.300'}/></Button>
@@ -20,7 +20,7 @@ const CartTile = () => {
                 </Flex>
               </Flex>
               <Box h={45} w={45} position={'relative'} top={47} right={-87} borderBottomEndRadius={12} borderTopLeftRadius={12} bgColor={'blue.100'} display={'flex'} alignItems={'center'} justifyContent={'center'}>
-                <Button sx={{all:'unset'}} onClick={()=>handle()}><DeleteIcon fontSize={'20'} color={'blue.500'} as="Button" /></Button>
+                <Button sx={{all:'unset'}} onClick={()=>handleDelete()}><DeleteIcon fontSize={'20'} color={'blue.500'} as="Button" /></Button>
               </Box>
             </Flex>
      );
