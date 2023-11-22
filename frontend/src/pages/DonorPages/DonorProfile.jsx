@@ -4,6 +4,7 @@ import { useLocation } from "react-router";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"
 import { supabase } from "../../config/config";
 import { IoPersonCircleOutline } from "react-icons/io5";
+
 const DonorProfile = () => {
     const location = useLocation();
     const donorId = location.state?.donorId;
@@ -36,8 +37,6 @@ const DonorProfile = () => {
                     .from('donor_personal_info')
                     .select()
                     .eq('user_id', donorId)
-
-                
 
                 setPersonalInfo(Data[0])
 

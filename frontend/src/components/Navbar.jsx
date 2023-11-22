@@ -41,7 +41,7 @@ const Navbar = (props) => {
           <MenuButton><Avatar size={'sm'} bgColor={'blue.200'} cursor={'pointer'} /></MenuButton>
           {props.usertag=="donor"?<MenuList><MenuItem _active={{ color: "blue.500" }} onClick={()=>navigate("/donorprofilepage")}>Profile</MenuItem></MenuList>:props.usertag=="adopter"?<MenuList >
             <MenuItem _active={{ color: "blue.500" }} ref={btnRef} onClick={onOpen}>Cart</MenuItem>
-            <MenuItem _active={{ color: "blue.500" }} >Profile</MenuItem>
+            <MenuItem _active={{ color: "blue.500" }} onClick={() => navigate("/adopters")}>Profile</MenuItem>
           </MenuList>:<MenuList><MenuItem _active={{ color: "blue.500" }} >Profile</MenuItem></MenuList>}
         </Menu>
 

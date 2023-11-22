@@ -5,15 +5,8 @@ import { EditIcon } from "@chakra-ui/icons";
 import { useEffect, useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { supabase } from "../config/config";
-import {
-    Modal,
-    ModalOverlay,
-    ModalContent,
-    ModalHeader,
-    ModalFooter,
-    ModalBody,
-} from '@chakra-ui/react'
 import Modal1 from "../components/Modal1";
+//import { useToast } from "@chakra-ui/react";
 const DonorProfilePage = () => {
     const [edit,setEdit] = useState(false);
 
@@ -81,7 +74,6 @@ const DonorProfilePage = () => {
                 })
             }
         }
-
         fetchDetails()
 
     }, [])
