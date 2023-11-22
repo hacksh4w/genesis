@@ -1,6 +1,6 @@
 //import React from 'react'
 import { useState } from "react";
-import { Flex, HStack, Input, InputGroup, InputLeftElement, Stack, Tab, Tabs, Box, TabList, TabIndicator, TabPanel, TabPanels, VStack, Text,Menu,MenuList,MenuButton,MenuItem,Button } from "@chakra-ui/react";
+import { Flex, HStack, Input, InputGroup, InputLeftElement, Stack, Tab, Tabs, Box, TabList, TabIndicator, TabPanel, TabPanels, VStack, Text, Menu, MenuList, MenuButton, MenuItem, Button } from "@chakra-ui/react";
 import { PhoneIcon, EmailIcon, ChevronDownIcon, CheckIcon } from '@chakra-ui/icons'
 import { Icon } from '@chakra-ui/react'
 import { Radio, RadioGroup } from '@chakra-ui/react'
@@ -44,7 +44,7 @@ const Form22 = ({onFormDataChange}) => {
                     ml={10}
                     borderRadius="1px"
                 />
-                <TabPanels > 
+                <TabPanels >
                     <TabPanel>
                         <Flex direction={'column'} w={600} gap={5}>
                             <Input placeholder='Name' onChange={(e) => handleChange(e, 'spouse1_name')}></Input>

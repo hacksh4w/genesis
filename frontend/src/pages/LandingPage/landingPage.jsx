@@ -2,7 +2,6 @@ import React, { useEffect } from 'react';
 import shape from '../../assets/shape.png';
 import '@fortawesome/fontawesome-free/css/all.css';
 import family from '../../assets/fam.png';
-import SignIn from '../SignIn/SignIn';
 import './LandingPage.css'; // Create a CSS file for styling and import it
 import { Link } from 'react-router-dom';
 
@@ -71,6 +70,10 @@ function LandingPage() {
             <div className='container1'>
               <div className='logo'>
                 <h3>logo</h3>
+                <button className='toggle-btn'>
+                <i className='far fa-moon'></i>
+                <i className='far fa-sun'></i>
+              </button>
               </div>
 
               <div className='overlay'></div>
@@ -106,10 +109,7 @@ function LandingPage() {
 
           <div className='bottom-area'>
             <div className='container1'>
-              <button className='toggle-btn'>
-                <i className='far fa-moon'></i>
-                <i className='far fa-sun'></i>
-              </button>
+            Copyright © 2023 Love Finds a Home ®
             </div>
           </div>
         </div>
