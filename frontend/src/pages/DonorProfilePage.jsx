@@ -1,14 +1,24 @@
-import { Flex, Box, Image, Divider, AbsoluteCenter, Text, Heading, Tabs, TabList, Tab, TabPanels, TabPanel, Button, useToast } from "@chakra-ui/react";
+import { Flex, Box, Image, Divider, AbsoluteCenter, Text, Heading, Tabs, TabList, Tab, TabPanels, TabPanel, Button, useToast, Input, useDisclosure } from "@chakra-ui/react";
 
 import woman from '../../src/assets/woman1.avif'
 import { EditIcon } from "@chakra-ui/icons";
 import { useEffect, useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { supabase } from "../config/config";
+import {
+    Modal,
+    ModalOverlay,
+    ModalContent,
+    ModalHeader,
+    ModalFooter,
+    ModalBody,
+} from '@chakra-ui/react'
+import Modal1 from "../components/Modal1";
 const DonorProfilePage = () => {
     const [edit,setEdit] = useState(false);
 
     const toast = useToast({})
+    const { isOpen, onOpen, onClose } = useDisclosure()
 
     const AuthContext = useAuth()
     const userid = AuthContext.userID;
@@ -80,7 +90,7 @@ const DonorProfilePage = () => {
     return ( 
         <Flex w={'100vw'} direction={'column'} h={'100vh'}>
             <Flex h={110} w={'100vw'} bgColor={'blue.100'} alignItems={'center'} justifyContent={'flex-end'} p={8}>
-                <Button><EditIcon />Edit Profile</Button>
+                <Button onClick={onOpen}><EditIcon />Edit Profile</Button>
             </Flex>
             <Box width={200} height={200} borderRadius='120' borderColor={'blue.100'} overflow='hidden' ml={"10%"} mt={-85} borderWidth={'10px'}>
                 <Image src={woman} />
@@ -98,7 +108,6 @@ const DonorProfilePage = () => {
                         <Text fontSize={16}><span style={{ fontWeight: 'bolder' }}>Address : </span>{personalInfo.address}</Text>
                         <Text fontSize={16}><span style={{ fontWeight: 'bolder' }}>City : </span>{personalInfo.city}</Text>
                         <Text fontSize={17}><span style={{ fontWeight: 'bolder' }}>State : </span>{personalInfo.state}</Text>
-                        <Text fontSize={16}><span style={{ fontWeight: 'bolder' }}>Country : </span>{personalInfo.country}</Text>
                         <Text fontSize={16}><span style={{ fontWeight: 'bolder' }}>Pincode : </span>{personalInfo.pincode}</Text>
                     </Flex>
                 </Flex>
@@ -138,6 +147,7 @@ const DonorProfilePage = () => {
                     </Tabs>
                 </Flex>
             </Flex>
+            <Modal1/>
         </Flex>
      );
 }
