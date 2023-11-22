@@ -13,8 +13,6 @@ import {
 import { useRef, useState } from 'react';
 import CartTile from './Cart/CartTile';
 import { Link } from 'react-router-dom';
-import { supabase } from '../config/config';
-import { useAuth } from '../contexts/AuthContext';
 const Navbar = (props) => {
 
   const AuthContext = useAuth()
@@ -108,15 +106,14 @@ const Navbar = (props) => {
           <DrawerCloseButton />
 
           <DrawerBody mt={100} ml={30}>
-            <Input placeholder='enter donor id' onChange={(e)=>handleChange(Number(e.target.value),"donor_id")}/>
-            <Text>Price for one Vial :  $100</Text>
-            <Input onChange={(e)=>handleChange(e.target.value,"price")}></Input>
+            <CartTile/>
+
           </DrawerBody>
 
           <Center>
           <DrawerFooter mb={90}>
             <Button w={200} borderRadius={30} colorScheme='blue' //onClick={()} 
-             h={50} onClick={addTransaction}>Pay Now</Button>
+             h={50}>Pay Now</Button>
           </DrawerFooter>
           </Center>
         </DrawerContent>

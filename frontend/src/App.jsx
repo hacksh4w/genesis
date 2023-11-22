@@ -13,12 +13,14 @@ import DonorProfile from './pages/DonorPages/DonorProfile'
 //import Footer from './components/Footer/Footer'
 //import AdopterApplication from './pages/AdopterApplication'
 import AdopterProfile from './pages/AdopterProfile'
-import AdopterProf from './pages/AdopterProf'
+//import AdopterProf from './pages/AdopterProf'
 import DonorProfilePage from './pages/DonorProfilePage'
 import AdopterApplication2 from './pages/AdopterPages/AdopterApplication'
 import ClinicCatalog from './pages/ClinicPages/ClinicCatalog'
 //import { supabase } from './config/config'
 import { useAuth } from './contexts/AuthContext'
+import RequestsTable from './pages/Transactions'
+
 
 const App = () => {
   //const [session, setSession] = useState(null)
@@ -72,6 +74,7 @@ const App = () => {
         <Routes>
           <Route path='/landing' element={<LandingPage/>}></Route>
           <Route path="/signup" element={<Signup />}></Route>
+          <Route path="/transactions" element={<RequestsTable />}></Route>
           <Route path="/signin" element={<SignIn />}></Route>
           <Route path="/" element={<LandingPage />}></Route>
           <Route path="/clinics" element={<ClinicCatalog/>}></Route>
@@ -80,7 +83,7 @@ const App = () => {
           <Route path="/donorapplication" element={<DonorApplication/>}></Route>
           <Route path='/newadopterapplication' element={<AdopterApplication2/>}></Route>
           <Route path="/adopters" element={<AdopterProfile/>}></Route>
-          <Route path="/test" element={<AdopterProf/>}></Route>
+         {/*} <Route path="/test" element={<AdopterProf/>}></Route> */}
           <Route path="donorprofilepage" element={<DonorProfilePage/>}></Route>
           {/*} <Route path="/Genesis/adminlogin" element={<Signup/>}></Route>
         <Route path="/Genesis/transactions" element={<Signup/>}></Route>
