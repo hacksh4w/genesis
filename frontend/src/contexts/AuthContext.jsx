@@ -3,8 +3,12 @@ import { supabase } from '../config/config';
 
 const AuthContext = createContext();
 
-export const AuthProvider = ({ children }) => {
-  const [user, setUser] = useState(null);
+export const useAuth = () => {
+  return useContext(AuthContext);
+};
+
+export const AuthProvider = ({children}) => {
+  //const [user, setUser] = useState(null);
   const [userID, setUserID] = useState(null);
   const [userTag,setUserTag]=useState(null)
 
@@ -54,13 +58,15 @@ export const AuthProvider = ({ children }) => {
   };
 
   const value = {
-    user,
+    //user,
     userID,
     userTag,
     signIn,
   };
 
-  return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
+  return (
+    <AuthContext.Provider value={value}>
+      {children}
+    </AuthContext.Provider>
+  );
 };
-
-export const useAuth = () => useContext(AuthContext);

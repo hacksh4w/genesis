@@ -37,8 +37,6 @@ const DonorProfilePage = () => {
 
                 setPersonalInfo(Data[0])
 
-                
-
                 if (errorData) throw errorData
             } catch (error) {
                 toast({
