@@ -7,7 +7,7 @@ import { Radio, RadioGroup } from '@chakra-ui/react'
 import { FaRegAddressCard } from "react-icons/fa";
 // import { CiLocationOn } from "react-icons/ci";
 
-const Form22 = () => {
+const Form22 = ({onFormDataChange}) => {
     const [formData, setFormData] = useState({
         spouse1_name: '',
         spouse2_name: '',
@@ -25,11 +25,11 @@ const Form22 = () => {
         spouse2_blood: ''
     });
     const handleChange = (e, field) => {
-        setFormData({
-          ...formData,
-          [field]: e.target.value,
-        });
-      };
+        const updatedFormData = { ...formData, [field]: e.target.value };
+    setFormData(updatedFormData);
+    onFormDataChange(updatedFormData);
+    };
+
     return (
         <Flex>
             <Tabs position="relative" variant="unstyled"  >

@@ -29,7 +29,6 @@ const AdopterApplication2 = () => {
   const AuthContext=useAuth()
   const userId = AuthContext.userID
 
-
   //const { isOpen, onOpen, onClose } = useDisclosure();
   const { activeStep, setActiveStep } = useSteps({
     index: 0,
@@ -62,7 +61,8 @@ const AdopterApplication2 = () => {
           }
     }
     if(i==1){
-      const spouse1Details = {
+    /*  const spouse1Details = {
+        user_id : userId,
         name: formData2.spouse1_name,
         spouse_no : 1,
         dob: formData2.spouse1_dob,
@@ -74,6 +74,7 @@ const AdopterApplication2 = () => {
     };
 
     const spouse2Details = {
+        user_id : userId,
         name: formData2.spouse2_name,
         spouse_no : 2,
         dob: formData2.spouse2_dob,
@@ -89,7 +90,7 @@ const AdopterApplication2 = () => {
     // Send formattedData to the backend
     // Add your API call or other logic here
     console.log("Sending data to the backend:", formattedData2);
-
+    */
         try{
             console.log(spouse1Details)
             console.log(spouse2Details)
@@ -170,7 +171,7 @@ const handleSubmit = async () => {
         isClosable: true,
         position: "top",
     })
-    navigate(`/`)
+    navigate(`/donors`)
 
 }
 
