@@ -28,7 +28,7 @@ const SignIn = () => {
     if(email=="luminousmaxima05@gmail.com" && password=="admin"){
       navigate("/transactions")
     }
-    signIn(email, password, navigate, toast);
+    else{signIn(email, password, navigate, toast);}
   };
     return (
         <div className="sign-up-page">
