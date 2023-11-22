@@ -13,11 +13,41 @@ import {
 import { useRef, useState } from 'react';
 import CartTile from './Cart/CartTile';
 import { Link } from 'react-router-dom';
+import {useAuth} from '../contexts/AuthContext'
+
 const Navbar = (props) => {
   const navigate = useNavigate()
   const [open, setDrawerOpen] = useState(false)
   const { isOpen, onOpen, onClose } = useDisclosure()
   const btnRef = useRef()
+
+  const handlePayNow = (async) => {
+    const clinicAdminId = Math.floor(Math.random() * 1000)  //picks clinic admin number
+    const requestData = {
+      userId : props.userId,
+      donorId : props.donorId,
+      //sampleId :  props.sampleId,
+      clinicAdminId : clinicAdminId,
+      verify : Boolean(false),
+    }
+/*
+    try{
+      const { error: error1 } = await supabase.from('adopter_basic_info').insert(requestData);
+      console.log(formData1)
+      if (error1) {
+          throw error1;
+       }
+    }catch (error) {
+      console.error('Error inserting data:', error);
+      toast({
+        title: 'Error inserting data',
+        description: error.message || 'An error occurred while inserting data',
+        status: 'error',
+        isClosable: true,
+        position: 'top',
+      }); 
+    };*/
+  }
 
   return (
     <Flex bgColor={'blue.50'} mb={4} borderRadius={'30'} alignItems={'center'} p={4} justifyContent={'space-between'} boxShadow={'md'}>
@@ -64,12 +94,11 @@ const Navbar = (props) => {
 
           <DrawerBody mt={100} ml={30}>
             <CartTile/>
-
           </DrawerBody>
 
           <Center>
           <DrawerFooter mb={90}>
-            <Button w={200} borderRadius={30} colorScheme='blue' //onClick={()} 
+            <Button w={200} borderRadius={30} colorScheme='blue' onClick={() => {handlePayNow} } 
              h={50}>Pay Now</Button>
           </DrawerFooter>
           </Center>

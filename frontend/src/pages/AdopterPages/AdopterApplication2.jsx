@@ -24,7 +24,7 @@ const steps = [
   
 ];
 
-const AdopterApplication2 = () => {
+const AdopterApplication3 = () => {
   const AuthContext=useAuth()
   const userId = AuthContext.userID
   const { isOpen, onOpen, onClose } = useDisclosure();
@@ -152,4 +152,4 @@ const AdopterApplication2 = () => {
   );
 }
 
-export default AdopterApplication2;
+export default AdopterApplication3;
