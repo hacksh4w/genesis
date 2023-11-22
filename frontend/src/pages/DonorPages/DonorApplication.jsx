@@ -75,6 +75,7 @@ const DonorApplication = () => {
     const toast = useToast()
     const navigate= useNavigate()
     const handleSubmit = async () => {
+
         if(currentPage==2){
             try{
                 const { error: error1 } = await supabase.from('donor_health_info').insert([formData3]);

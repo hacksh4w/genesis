@@ -20,7 +20,7 @@ const Navbar = (props) => {
 
   return (
     <Flex bgColor={'blue.50'} mb={4} borderRadius={'30'} alignItems={'center'} p={4} justifyContent={'space-between'} boxShadow={'md'}>
-      <Heading fontSize={'25'} ml={10} color={'blue.300'}>Genesis</Heading>
+      <Heading fontSize={'25'} onClick={() => navigate('/')} ml={10} color={'blue.300'}>Genesis</Heading>
       <Flex alignItems={'center'} w={500} justifyContent={'space-between'}>
         <Menu  >
           <MenuButton fontSize={'17'} as={Text} color={'blue.600'} >Donor<ChevronDownIcon fontSize={20} color={'blue.600'} /></MenuButton>
@@ -67,7 +67,8 @@ const Navbar = (props) => {
 
           <Center>
           <DrawerFooter mb={90}>
-            <Button w={200} borderRadius={30} colorScheme='blue' h={50}>Pay Now</Button>
+            <Button w={200} borderRadius={30} colorScheme='blue' //onClick={()} 
+             h={50}>Pay Now</Button>
           </DrawerFooter>
           </Center>
         </DrawerContent>

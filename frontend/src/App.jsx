@@ -9,17 +9,52 @@ import DonorApplication from './pages/DonorPages/DonorApplication'
 import DonorCatalog from './pages//DonorPages/DonorCatalog'
 import DonorProfile from './pages/DonorPages/DonorProfile'
 import Footer from './components/Footer/Footer'
-import AdopterApplication from './pages/AdopterApplication'
+//import AdopterApplication from './pages/AdopterApplication'
 import AdopterProfile from './pages/AdopterProfile'
 import AdopterProf from './pages/AdopterProf'
 import DonorProfilePage from './pages/DonorProfilePage'
-import AdopterApplication2 from './pages/AdopterPages/AdopterApplication2'
+import AdopterApplication2 from './pages/AdopterPages/AdopterApplication'
 import ClinicCatalog from './pages/ClinicPages/ClinicCatalog'
 import { useEffect, useState } from 'react'
 import { supabase } from './config/config'
+import { useAuth } from './contexts/AuthContext'
+
 const App = () => {
   const [session, setSession] = useState(null)
+  const [userInfo, setUserInfo] = useState([]);
+  
+  const AuthContext=useAuth()
+  const userId = AuthContext.userID
 
+  const [user, setUser] = useState(null);
+
+  {/*useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        
+    const { data: { user } } = await supabase.auth.getUser()
+        setUser(user);
+        if (user) {
+          const { data, error } = await supabase
+            .from('users')
+            .select('tag')
+            .eq('id', user.id);
+
+          if (error) {
+            throw error;
+          }
+          setUserInfo(data);
+        }
+        console.log(userInfo)
+      } catch (error) {
+        console.error('Error fetching user:', error.message);
+      }
+    };
+
+    fetchUser();
+  }, []); */}
+
+  console.log(userId)
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session)
@@ -37,7 +72,7 @@ const App = () => {
           <Route path='/landing' element={<LandingPage/>}></Route>
           <Route path="/signup" element={<Signup />}></Route>
           <Route path="/signin" element={<SignIn />}></Route>
-          <Route path="/" element={<SignIn />}></Route>
+          <Route path="/" element={<LandingPage />}></Route>
           <Route path="/clinics" element={<ClinicCatalog/>}></Route>
           <Route path="/donors" element={<DonorCatalog/>}></Route>
           <Route path="/donors/:id" element={<DonorProfile/>}></Route>

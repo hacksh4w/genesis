@@ -15,6 +15,7 @@ import {
   ModalBody,
   ModalCloseButton,
 } from '@chakra-ui/react';
+import { useAuth } from "../../contexts/AuthContext";
 
 const steps = [
   { title: 'First', description: 'Basic Information' },
@@ -24,6 +25,8 @@ const steps = [
 ];
 
 const AdopterApplication2 = () => {
+  const AuthContext=useAuth()
+  const userId = AuthContext.userID
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { activeStep, setActiveStep } = useSteps({
     index: 0,
@@ -59,6 +62,31 @@ const AdopterApplication2 = () => {
   const handleCheckboxChange2 = () => {
     setIsChecked2(!isChecked2);
   };
+
+  const [formData1, setFormData1] = useState({});
+    const [formData2, setFormData2] = useState({});
+    const [formData3, setFormData3] = useState({});
+
+    const handleForm1DataChange = (data) => {
+        setFormData1({
+            ...data,
+            user_id: userId, // Include userId in formData1
+          }); // Update formData1 in the parent component
+      };
+
+      const handleForm2DataChange = (data) => {
+        setFormData2({
+            ...data,
+            user_id: userId, // Include userId in formData1
+          }); // Update formData1 in the parent component
+      };
+
+      const handleForm3DataChange = (data) => {
+        setFormData3({
+            ...data,
+            user_id: userId, // Include userId in formData1
+          }); // Update formData1 in the parent component
+      };
 
   return (
     <>
