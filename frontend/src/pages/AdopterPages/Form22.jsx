@@ -11,7 +11,7 @@ const Form22 = ({onFormDataChange}) => {
     const [formData, setFormData] = useState({
         spouse1_name: '',
         spouse2_name: '',
-        spose1_dob: '',
+        spouse1_dob: '',
         spouse2_dob: '',
         spouse1_email: '',
         spouse2_email: '',

@@ -5,6 +5,8 @@ import { EditIcon } from "@chakra-ui/icons";
 import { useEffect, useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { supabase } from "../config/config";
+
+
 const DonorProfilePage = () => {
     const [edit,setEdit] = useState(false);
 
@@ -26,8 +28,6 @@ const DonorProfilePage = () => {
                     .eq('user_id', userid)
 
                 setPersonalInfo(Data[0])
-
-                
 
                 if (errorData) throw errorData
             } catch (error) {

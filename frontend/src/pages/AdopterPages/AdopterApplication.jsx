@@ -21,7 +21,6 @@ const steps = [
   { title: 'First', description: 'Basic Information' },
   { title: 'Second', description: 'Spouse Details' },
   { title: 'Third', description: 'Medical History' },
-  
 ];
 
 const AdopterApplication2 = () => {
@@ -61,8 +60,9 @@ const AdopterApplication2 = () => {
           }
     }
     if(i==1){
-    /*  const spouse1Details = {
-        user_id : userId,
+     /* const spouseDetails = {
+        spouse1 : {
+        //user_id : AuthContext.userID,
         name: formData2.spouse1_name,
         spouse_no : 1,
         dob: formData2.spouse1_dob,
@@ -71,10 +71,10 @@ const AdopterApplication2 = () => {
         aadhar: formData2.spouse1_aadhar,
         gender: formData2.spouse1_gender,
         blood_group: formData2.spouse1_blood,
-    };
+    }, 
 
-    const spouse2Details = {
-        user_id : userId,
+    spouse2 : {
+        //user_id : AuthContext.userID,  
         name: formData2.spouse2_name,
         spouse_no : 2,
         dob: formData2.spouse2_dob,
@@ -83,25 +83,25 @@ const AdopterApplication2 = () => {
         aadhar: formData2.spouse2_aadhar,
         gender: formData2.spouse2_gender,
         blood_group: formData2.spouse2_blood,
-    };
+    }
+  }; */
 
-    const formattedData2 = [spouse1Details, spouse2Details];
+    //const formattedData2 = [spouse1Details, spouse2Details];
 
     // Send formattedData to the backend
-    // Add your API call or other logic here
-    console.log("Sending data to the backend:", formattedData2);
-    */
+    //console.log("Sending data to the backend:", formattedData2);
         try{
-            console.log(spouse1Details)
-            console.log(spouse2Details)
-            const { error: error1 } = await supabase.from('adopter_spouse_details').insert([spouse1Details]);
-            const { error: error2 } = await supabase.from('adopter_spouse_details').insert([spouse2Details]);
+           // console.log(spouseDetails.spouse1)
+            //console.log(spouseDetails.spouse2)
+            const { error: error1 } = await supabase.from('adopter_spouses').insert([formData2]);
+            //const { error: error2 } = await supabase.from('adopter_spouse_details').insert([spouseDetails.spouse2]);
+            //const { error: error1 } = await supabase.from('adopter_spouse_details').insert([formData2]);
             if (error1) {
                 throw error1;
              }
-             else if(error2){
+             /*else if(error2){
                 throw error2;
-             }  
+             }  */
         }catch (error) {
             console.error('Error inserting data:', error);
             toast({
@@ -127,8 +127,8 @@ const handleBack = () =>{
 
 const toast = useToast()
 const navigate= useNavigate()
-const handleSubmit = async () => {
 
+const handleSubmit = async () => {
     if(currentPage==2){
         try{
             const { error: error1 } = await supabase.from('adopter_medical_history').insert([formData3]);
@@ -148,7 +148,7 @@ const handleSubmit = async () => {
           }
         try{
             const {error:error1} = await supabase.from('users')
-            .update({ tag: 'donor' })
+            .update({ tag: 'adopter' })
             .eq('id', userId)
             if (error1) {
                 throw error1;
@@ -188,9 +188,9 @@ const handleForm1DataChange = (data) => {
 
   const handleForm2DataChange = (data) => {
     setFormData2({
-        ...data,
-        user_id: userId, // Include userId in formData1
-      }); // Update formData1 in the parent component
+      ...data,
+      user_id: userId, // Include userId in formData1
+    }); // Update formData2 in the parent component
   };
 
   const handleForm3DataChange = (data) => {

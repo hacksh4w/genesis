@@ -25,9 +25,9 @@ const Form33 = ({onFormDataChange}) => {
   //});
   const handleChange = (e, field) => {
     const updatedFormData = { ...formData, [field]: e.target.value };
-setFormData(updatedFormData);
-onFormDataChange(updatedFormData);
-};
+    setFormData(updatedFormData);
+    onFormDataChange(updatedFormData);
+  };
   return (
     <Flex direction={'column'} mt={8} gap={10}>
       <Flex gap={80}>
