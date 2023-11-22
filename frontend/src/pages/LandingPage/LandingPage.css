@@ -79,7 +79,10 @@ header .container1 {
 }
 
 .logo img {
-  width: 40px;
+  width: 120px;
+  height: 120px;
+  background-color: #5bacdf;
+  border-radius: 50%;
   margin-right: 0.6rem;
   margin-top: -0.6rem;
 }

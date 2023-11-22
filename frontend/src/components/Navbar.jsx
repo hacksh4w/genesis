@@ -12,6 +12,7 @@ import {
 } from '@chakra-ui/react'
 import { useRef, useState } from 'react';
 import CartTile from './Cart/CartTile';
+import { Link } from 'react-router-dom';
 const Navbar = (props) => {
   const navigate = useNavigate()
   const [open, setDrawerOpen] = useState(false)
@@ -35,13 +36,14 @@ const Navbar = (props) => {
             <MenuItem _active={{ color: "blue.500" }} onClick={() => navigate("/newadopterapplication")}>Become Adopter</MenuItem>
           </MenuList>
         </Menu>
+        <Link to={'/clinics'}>
         <Text fontSize={'17'} color={'blue.600'}>Clinic Services</Text>
-
+        </Link>
         <Menu  >
           <MenuButton><Avatar size={'sm'} bgColor={'blue.200'} cursor={'pointer'} /></MenuButton>
           {props.usertag=="donor"?<MenuList><MenuItem _active={{ color: "blue.500" }} onClick={()=>navigate("/donorprofilepage")}>Profile</MenuItem></MenuList>:props.usertag=="adopter"?<MenuList >
             <MenuItem _active={{ color: "blue.500" }} ref={btnRef} onClick={onOpen}>Cart</MenuItem>
-            <MenuItem _active={{ color: "blue.500" }} >Profile</MenuItem>
+            <MenuItem _active={{ color: "blue.500" }} onClick={() => navigate("/adopters")}>Profile</MenuItem>
           </MenuList>:<MenuList><MenuItem _active={{ color: "blue.500" }} >Profile</MenuItem></MenuList>}
         </Menu>
 
@@ -67,7 +69,8 @@ const Navbar = (props) => {
 
           <Center>
           <DrawerFooter mb={90}>
-            <Button w={200} borderRadius={30} colorScheme='blue' h={50}>Pay Now</Button>
+            <Button w={200} borderRadius={30} colorScheme='blue' //onClick={()} 
+             h={50}>Pay Now</Button>
           </DrawerFooter>
           </Center>
         </DrawerContent>

@@ -1,4 +1,6 @@
-//import { useState, useContext } from 'react'
+import { useState, 
+  //useContext 
+}   from 'react'
 import './App.css'
 import { ChakraProvider } from '@chakra-ui/react'
 import Signup from './pages/SignUpPage/Signup'
@@ -8,20 +10,19 @@ import { Routes, Route } from "react-router-dom"
 import DonorApplication from './pages/DonorPages/DonorApplication'
 import DonorCatalog from './pages//DonorPages/DonorCatalog'
 import DonorProfile from './pages/DonorPages/DonorProfile'
-import Footer from './components/Footer/Footer'
-import AdopterApplication from './pages/AdopterApplication'
+//import Footer from './components/Footer/Footer'
+//import AdopterApplication from './pages/AdopterApplication'
 import AdopterProfile from './pages/AdopterProfile'
 import AdopterProf from './pages/AdopterProf'
 import DonorProfilePage from './pages/DonorProfilePage'
 import AdopterApplication2 from './pages/AdopterPages/AdopterApplication'
 import ClinicCatalog from './pages/ClinicPages/ClinicCatalog'
-import { useEffect, useState } from 'react'
-import { supabase } from './config/config'
+//import { supabase } from './config/config'
 import { useAuth } from './contexts/AuthContext'
 
 const App = () => {
-  const [session, setSession] = useState(null)
-  const [userInfo, setUserInfo] = useState([]);
+  //const [session, setSession] = useState(null)
+  //const [userInfo, setUserInfo] = useState([]);
   
   const AuthContext=useAuth()
   const userId = AuthContext.userID
@@ -54,8 +55,8 @@ const App = () => {
     fetchUser();
   }, []); */}
 
-  //console.log(userId)
-  useEffect(() => {
+  console.log(userId)
+  /*useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session)
     })
@@ -63,7 +64,7 @@ const App = () => {
     supabase.auth.onAuthStateChange((_event, session) => {
       setSession(session)
     })
-  }, [])
+  }, []) */
   return (
     
     <div className='App'>

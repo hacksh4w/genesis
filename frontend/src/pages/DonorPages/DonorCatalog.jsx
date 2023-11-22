@@ -32,7 +32,6 @@ const DonorCatalog = () => {
                 donor.name.toLowerCase().includes(searchTerm) ||
                 donor.id.toString().includes(searchTerm)
         );
-
         setFilteredDonors(filtered);
     };
 

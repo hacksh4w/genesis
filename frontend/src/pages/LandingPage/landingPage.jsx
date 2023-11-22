@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import shape from '../../assets/shape.png';
 import '@fortawesome/fontawesome-free/css/all.css';
 import family from '../../assets/fam.png';
+import logo3 from '../../assets/logo.png';
 import './LandingPage.css'; // Create a CSS file for styling and import it
 import { Link } from 'react-router-dom';
 
@@ -69,10 +70,9 @@ function LandingPage() {
           <header className='heading'>
             <div className='container1'>
               <div className='logo'>
-                <h3>logo</h3>
+                <img src={logo3}/>
                 <button className='toggle-btn'>
-                <i className='far fa-moon'></i>
-                <i className='far fa-sun'></i>
+                
               </button>
               </div>
 
@@ -109,7 +109,7 @@ function LandingPage() {
 
           <div className='bottom-area'>
             <div className='container1'>
-            Copyright © 2023 Love Finds a Home ®
+            Copyright © 2023 Gensesis ®
             </div>
           </div>
         </div>
