@@ -1,4 +1,4 @@
-import { Flex, Menu, MenuButton, MenuItem, MenuList, Text, Heading, Button, Input, useDisclosure, Box, HStack, Center, useColorMode, useColorModeValue } from '@chakra-ui/react'
+import { Flex, Menu, MenuButton, MenuItem, MenuList, Text, Heading, Button, Input, useDisclosure, Box, HStack, Center, useColorMode, useColorModeValue, useToast } from '@chakra-ui/react'
 import { ChevronDownIcon, DeleteIcon } from '@chakra-ui/icons'
 import { useNavigate } from 'react-router';
 import { Avatar } from '@chakra-ui/react'
@@ -13,11 +13,56 @@ import {
 import { useRef, useState } from 'react';
 import CartTile from './Cart/CartTile';
 import { Link } from 'react-router-dom';
+import { supabase } from '../config/config';
+import { useAuth } from '../contexts/AuthContext';
 const Navbar = (props) => {
+
+  const AuthContext = useAuth()
+  const userid=AuthContext.userID
+
   const navigate = useNavigate()
+  const toast=useToast({})
   const [open, setDrawerOpen] = useState(false)
   const { isOpen, onOpen, onClose } = useDisclosure()
   const btnRef = useRef()
+
+  const [dataCart,setDataCart]= useState({adopter_id:userid,donor_id:null,price:""})
+
+  const addTransaction = async () =>{
+    try {
+      const updatedDataCart = { ...dataCart, adopter_id: userid }
+      setDataCart(updatedDataCart);
+      console.log(dataCart)
+      const { error } = await supabase
+          .from('Cart')
+          .insert([updatedDataCart])
+
+      if (error) {
+          throw error;
+      }
+      console.log(error)
+      toast({
+          title: "Added transaction",
+          status: "success",
+          isClosable: true,
+          position: "top"
+      });
+
+      onClose(); 
+  } catch (error) {
+      toast({
+          title: "Failed to add",
+          status: "error",
+          isClosable: true,
+          position: "top"
+      });
+  }
+  }
+
+  const handleChange = (e,field)=>{
+    const updatedFormData = { ...dataCart, [field]: e };
+    setDataCart(updatedFormData);
+}
 
   return (
     <Flex bgColor={'blue.50'} mb={4} borderRadius={'30'} alignItems={'center'} p={4} justifyContent={'space-between'} boxShadow={'md'}>
@@ -63,14 +108,15 @@ const Navbar = (props) => {
           <DrawerCloseButton />
 
           <DrawerBody mt={100} ml={30}>
-            <CartTile/>
-
+            <Input placeholder='enter donor id' onChange={(e)=>handleChange(Number(e.target.value),"donor_id")}/>
+            <Text>Price for one Vial :  $100</Text>
+            <Input onChange={(e)=>handleChange(e.target.value,"price")}></Input>
           </DrawerBody>
 
           <Center>
           <DrawerFooter mb={90}>
             <Button w={200} borderRadius={30} colorScheme='blue' //onClick={()} 
-             h={50}>Pay Now</Button>
+             h={50} onClick={addTransaction}>Pay Now</Button>
           </DrawerFooter>
           </Center>
         </DrawerContent>

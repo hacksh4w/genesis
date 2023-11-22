@@ -2,7 +2,7 @@
 import { Flex, Box, Image, Divider, AbsoluteCenter, Text, Heading, Tabs, TabList, Tab, TabPanels, TabPanel, Button, useToast, Input, useDisclosure } from "@chakra-ui/react";
 
 import woman from '../../src/assets/woman1.avif'
-import { EditIcon } from "@chakra-ui/icons";
+import { DeleteIcon, EditIcon } from "@chakra-ui/icons";
 import { useEffect, useState } from "react";
 import { useAuth } from "../contexts/AuthContext";
 import { supabase } from "../config/config";
@@ -14,9 +14,10 @@ import {
     ModalFooter,
     ModalBody,
 } from '@chakra-ui/react'
-import Modal1 from "../components/Modal1";
+import { useNavigate } from "react-router";
 const DonorProfilePage = () => {
     const [edit,setEdit] = useState(false);
+    const navigate = useNavigate()
 
     const toast = useToast({})
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -87,10 +88,57 @@ const DonorProfilePage = () => {
         fetchDetails()
 
     }, [])
+
+    const [updateObj,setUpdateObj]= useState({
+        'address':personalInfo.address,
+        'phone':personalInfo.phone,
+        'state':personalInfo.state,
+        'city':personalInfo.city,
+        'occupation':personalInfo.occupation,
+        'age':personalInfo.age,
+        'education_level':personalInfo.education_level
+
+    })
+    const handleChange = (e,field)=>{
+        const updatedFormData = { ...updateObj, [field]: e.target.value };
+        setUpdateObj(updatedFormData);
+    }
+
+    const handleSubmit = async() =>{
+        try {
+            const { error } = await supabase
+                .from('donor_personal_info')
+                .update(updateObj)
+                .eq('user_id', userid);
+
+            if (error) {
+                throw error;
+            }
+            const updated = {...personalInfo,updateObj}
+            setPersonalInfo(updated)
+            toast({
+                title: "Profile updated successfully",
+                status: "success",
+                isClosable: true,
+                position: "top"
+            });
+
+            onClose(); 
+        } catch (error) {
+            toast({
+                title: "Failed to update profile",
+                status: "error",
+                isClosable: true,
+                position: "top"
+            });
+        }
+    }
+    
     return ( 
         <Flex w={'100vw'} direction={'column'} h={'100vh'}>
-            <Flex h={110} w={'100vw'} bgColor={'blue.100'} alignItems={'center'} justifyContent={'flex-end'} p={8}>
+            <Flex h={110} w={'100vw'} bgColor={'blue.100'} gap={3} alignItems={'center'} justifyContent={'flex-end'} p={8}>
                 <Button onClick={onOpen}><EditIcon />Edit Profile</Button>
+                <Button ><DeleteIcon />Delete Profile</Button>
             </Flex>
             <Box width={200} height={200} borderRadius='120' borderColor={'blue.100'} overflow='hidden' ml={"10%"} mt={-85} borderWidth={'10px'}>
                 <Image src={woman} />

@@ -154,7 +154,6 @@ useEffect(() => {
                             </Tabs>
                         </Flex>
                     </Flex>
-                    <Modal1/>
                 </Flex>
              );
         }

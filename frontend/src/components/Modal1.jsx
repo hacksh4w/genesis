@@ -1,5 +1,4 @@
 import { Flex, Box, Image, Divider, AbsoluteCenter, Text, Heading, Tabs, TabList, Tab, TabPanels, TabPanel, Icon, HStack, useDisclosure,Button, Input } from "@chakra-ui/react";
-import { LuPencil } from "react-icons/lu";
 import {
     Modal,
     ModalOverlay,
@@ -14,7 +13,7 @@ import {
     const { isOpen, onOpen, onClose } = useDisclosure()
         return(
             <Flex>
-                                    <LuPencil size={25} cursor={'pointer'} onClick={onOpen}/>
+                                    
                                     <Modal isOpen={isOpen} onClose={onClose} >
         <ModalOverlay />
         <ModalContent >
