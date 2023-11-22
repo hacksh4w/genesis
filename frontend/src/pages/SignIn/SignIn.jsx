@@ -37,7 +37,7 @@ const SignIn = () => {
                     <div className="pill-4 rotate-45"></div>
                 </div>
                 <div className="login">
-                    <h3 className="title">Sign Up</h3>
+                    <h3 className="title">Sign In</h3>
                     <div className="text-input">
                          <MailFillIcon className='i' />
                         <input type="email" placeholder="Email" onChange={(e)=>handleChange(e,'email')}/>

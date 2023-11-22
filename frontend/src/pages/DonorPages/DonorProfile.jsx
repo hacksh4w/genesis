@@ -1,12 +1,14 @@
 import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Button, Flex, Heading, Text, useToast } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
-import { useLocation } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai"
 import { supabase } from "../../config/config";
 import { IoPersonCircleOutline } from "react-icons/io5";
 const DonorProfile = () => {
     const location = useLocation();
     const donorId = location.state?.donorId;
+
+    const navigate = useNavigate()
 
     const [personalInfo, setPersonalInfo] = useState({})
     const [physicalAttributes, setphysicalAttributes] = useState({})
@@ -97,7 +99,7 @@ const DonorProfile = () => {
                     <Button bgColor={'blue.50'} _hover={{ bgColor: "blue.50" }} borderRadius={100} left={-120} top={-38} onClick={() => handleHeartToggle()}>{heartToggle == true ? <AiFillHeart size={"2.5rem"} color={"skyblue"} /> : <AiOutlineHeart size={"2.5rem"} color={"skyblue"} />} </Button>
                     <Box bgColor={'blue.50'} h={200} w={200} borderRadius={100} mb={10}><IoPersonCircleOutline color="#BEE3F8" size={200}/></Box>
                     <Heading fontSize={25} color={'blue.800'}>Donor Id : {donorId}</Heading>
-                    <Heading>{personalInfo.name}</Heading>
+                    <Heading fontSize={29}>{personalInfo.name}</Heading>
                 </Flex>
                 <Flex direction={'column'} position={"relative"}>
                     <Heading fontSize={30} color={'blue.800'} mb={5}>Description :</Heading>
@@ -163,7 +165,7 @@ const DonorProfile = () => {
                             </AccordionPanel>
                         </AccordionItem>
                     </Accordion>
-                    <Button position={"fixed"} top={"83vh"} p={5} w={120} colorScheme="blue" borderRadius={20} onClick={() => handleToast()}>Order Now</Button>
+                    <Flex position={"fixed"} top={"83vh"} gap={5}><Button  p={5} w={120} colorScheme="blue" borderRadius={20} onClick={() => handleToast()}>Order Now</Button><Button p={5} w={100} colorScheme="blue" borderRadius={20} onClick={()=>navigate("/donors")}>Back</Button></Flex>
                 </Flex>
             </Flex>
 
