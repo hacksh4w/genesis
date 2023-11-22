@@ -5,7 +5,7 @@ import { useToast } from '@chakra-ui/react';
 import { Button, Table, Thead, Tbody, Tr, Th, Td } from '@chakra-ui/react';
 
 const RequestsTable = () => {
-  const [requests, setRequests] = useState([]);
+  const [Cart, setCart] = useState([]);
   const AuthContext = useAuth();
   const userId = AuthContext.userID;
   const toast = useToast({});
@@ -16,9 +16,10 @@ const RequestsTable = () => {
         const { data: Data, error: errorData } = await supabase
           .from('Cart')
           .select('*');
+
         if (errorData) throw errorData;
         else {
-          setRequests(Data || []);
+          setCart(Data || []);
         }
       } catch (error) {
         toast({
@@ -35,7 +36,7 @@ const RequestsTable = () => {
   const handleVerifyRequest = async (requestId) => {
     try {
       const { data, error } = await supabase
-        .from('requests')
+        .from('Cart')
         .update({ verified: true })
         .eq('id', requestId);
 
@@ -43,7 +44,7 @@ const RequestsTable = () => {
         console.error('Error updating request:', error);
       } else {
         console.log('Request verified successfully:', data);
-        setRequests((prevRequests) =>
+        setCart((prevRequests) =>
           prevRequests.map((req) =>
             req.id === requestId ? { ...req, verified: true } : req
           )
@@ -67,9 +68,9 @@ const RequestsTable = () => {
           </Tr>
         </Thead>
         <Tbody>
-          {requests.map((request) => (
-            <Tr key={request.id}>
-              <Td>{request.id}</Td>
+          {Cart.map((request) => (
+            <Tr key={Cart.id}>
+              <Td>{Cart.id}</Td>
               <Td>{request.price}</Td>
               <Td>{request.donor_id}</Td>
               <Td>{request.adopter_id}</Td>
