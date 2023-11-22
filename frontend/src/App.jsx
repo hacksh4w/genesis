@@ -9,7 +9,7 @@ import DonorApplication from './pages/DonorPages/DonorApplication'
 import DonorCatalog from './pages//DonorPages/DonorCatalog'
 import DonorProfile from './pages/DonorPages/DonorProfile'
 import Footer from './components/Footer/Footer'
-import AdopterApplication from './pages/AdopterApplication'
+//import AdopterApplication from './pages/AdopterApplication'
 import AdopterProfile from './pages/AdopterProfile'
 import AdopterProf from './pages/AdopterProf'
 import DonorProfilePage from './pages/DonorProfilePage'
@@ -54,7 +54,7 @@ const App = () => {
     fetchUser();
   }, []); */}
 
-  //console.log(userId)
+  console.log(userId)
   useEffect(() => {
     supabase.auth.getSession().then(({ data: { session } }) => {
       setSession(session)

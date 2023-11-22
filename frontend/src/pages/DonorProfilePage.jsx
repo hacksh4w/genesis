@@ -77,6 +77,7 @@ const DonorProfilePage = () => {
         fetchDetails()
 
     }, [])
+    
     return ( 
         <Flex w={'100vw'} direction={'column'} h={'100vh'}>
             <Flex h={110} w={'100vw'} bgColor={'blue.100'} alignItems={'center'} justifyContent={'flex-end'} p={8}>
