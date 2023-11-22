@@ -67,7 +67,8 @@ const Navbar = (props) => {
 
           <Center>
           <DrawerFooter mb={90}>
-            <Button w={200} borderRadius={30} colorScheme='blue' h={50}>Pay Now</Button>
+            <Button w={200} borderRadius={30} colorScheme='blue' //onClick={()} 
+             h={50}>Pay Now</Button>
           </DrawerFooter>
           </Center>
         </DrawerContent>
