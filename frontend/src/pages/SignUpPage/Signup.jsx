@@ -1,17 +1,16 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import LockFillIcon from 'remixicon-react/LockFillIcon';
 import MailFillIcon from 'remixicon-react/MailFillIcon';
 import UserFillIcon from 'remixicon-react/UserFillIcon';
 import "./Signup.css";
 import SignupInput from '../../components/SignupInput';
-import { Link, useNavigate } from 'react-router-dom';
+//import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '../../config/config';
 import { useToast } from '@chakra-ui/react';
 
 
 const Signup = () => {
     const toast = useToast();
-
 
     const [userDataSignUp, setUserDataSignUp] = useState({
         name: '',
